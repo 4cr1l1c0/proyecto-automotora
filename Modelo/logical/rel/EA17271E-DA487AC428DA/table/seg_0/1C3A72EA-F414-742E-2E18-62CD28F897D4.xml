@@ -1,0 +1,261 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="1C3A72EA-F414-742E-2E18-62CD28F897D4" name="Trabajador">
+<createdBy>Dumba</createdBy>
+<createdTime>2026-05-14 17:09:37 UTC</createdTime>
+<generatorID>41B0F186-5076-EB59-845E-0953541D6880</generatorID>
+<ownerDesignName>logical</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="id_trabajador" id="5D852A9D-A368-873E-B3B8-A558934E663F">
+<createdBy>Dumba</createdBy>
+<createdTime>2026-05-14 17:09:37 UTC</createdTime>
+<generatorID>F1865FB4-6109-4730-2AB6-15363B9423D0</generatorID>
+<ownerDesignName>logical</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="run" id="8D3A983E-0C80-4113-E591-59AF138EC81C">
+<createdBy>Dumba</createdBy>
+<createdTime>2026-05-14 17:09:37 UTC</createdTime>
+<generatorID>F145A376-6280-7C5A-1129-0EA584E31647</generatorID>
+<ownerDesignName>logical</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>8</dataTypePrecision>
+<ownDataTypeParameters>,8,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="dverificador" id="3F9E89DA-2EEA-CA2F-A40F-4138BBF5BACB">
+<createdBy>Dumba</createdBy>
+<createdTime>2026-05-14 17:09:37 UTC</createdTime>
+<generatorID>56D385C0-B7F6-37EF-CFC5-772520FF869C</generatorID>
+<ownerDesignName>logical</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>1 CHAR</dataTypeSize>
+<ownDataTypeParameters>1 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="pnombre" id="3F183C14-09FE-E160-6535-8D701E1CE1DB">
+<createdBy>Dumba</createdBy>
+<createdTime>2026-05-14 17:09:37 UTC</createdTime>
+<generatorID>7686501A-4A93-095E-C681-3167363240D3</generatorID>
+<ownerDesignName>logical</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>30 CHAR</dataTypeSize>
+<ownDataTypeParameters>30 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="snombre" id="A781B4C2-2EBB-489C-D8EF-23F4B5BB800E">
+<createdBy>Dumba</createdBy>
+<createdTime>2026-05-14 17:09:37 UTC</createdTime>
+<generatorID>43B6B6BD-194B-E84B-A841-75E2AEE68358</generatorID>
+<ownerDesignName>logical</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>30</dataTypeSize>
+<ownDataTypeParameters>30,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="appaterno" id="14DC2E72-0618-003F-2C15-03F129AD5914">
+<createdBy>Dumba</createdBy>
+<createdTime>2026-05-14 17:09:37 UTC</createdTime>
+<generatorID>7996DC55-57A7-2EEC-43FF-5C9BABC24FD5</generatorID>
+<ownerDesignName>logical</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>30 CHAR</dataTypeSize>
+<ownDataTypeParameters>30 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="apmaterno" id="2729E172-DC33-9FF3-066A-14F96CC7E5D8">
+<createdBy>Dumba</createdBy>
+<createdTime>2026-05-14 17:09:37 UTC</createdTime>
+<generatorID>8886CF5F-E5AD-93E4-7996-38B9D9B01FEC</generatorID>
+<ownerDesignName>logical</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>30 CHAR</dataTypeSize>
+<ownDataTypeParameters>30 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="direccion" id="02397F42-8F0C-2E96-0D37-D084FC651FCA">
+<createdBy>Dumba</createdBy>
+<createdTime>2026-05-14 17:09:37 UTC</createdTime>
+<generatorID>04466037-C4F9-F66E-B0E6-ACF8F7CBF892</generatorID>
+<ownerDesignName>logical</ownerDesignName>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="email" id="B986D272-FDBF-15D2-FB20-02C9216E3B44">
+<createdBy>Dumba</createdBy>
+<createdTime>2026-05-14 17:09:37 UTC</createdTime>
+<generatorID>C2B881D0-53E1-1DAC-159B-AA94E703A8B5</generatorID>
+<ownerDesignName>logical</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>150 CHAR</dataTypeSize>
+<ownDataTypeParameters>150 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="telefono" id="3A1C44C9-7190-4734-F175-D23435DE448F">
+<createdBy>Dumba</createdBy>
+<createdTime>2026-05-14 17:09:37 UTC</createdTime>
+<generatorID>A8612439-C2A3-B490-7D82-BF9EE182F5B3</generatorID>
+<ownerDesignName>logical</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>9</dataTypePrecision>
+<ownDataTypeParameters>,9,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="fecha_contratacion" id="42D30E20-151A-6972-CD2D-5CB3B1B0E6DF">
+<createdBy>Dumba</createdBy>
+<createdTime>2026-05-14 17:09:37 UTC</createdTime>
+<generatorID>FFBBF56B-15B4-53E5-DD41-905D021EB528</generatorID>
+<ownerDesignName>logical</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="fecha_nacimiento" id="5B9AABFA-914D-AB36-54B3-4CB1F4CB0DAC">
+<createdBy>Dumba</createdBy>
+<createdTime>2026-05-14 17:09:37 UTC</createdTime>
+<generatorID>8B4200F0-1E35-E851-BD85-8FCB0250292F</generatorID>
+<ownerDesignName>logical</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="estado" id="B81D11C2-6D3D-9240-0CAE-04FCB468FA48">
+<createdBy>Dumba</createdBy>
+<createdTime>2026-05-14 17:09:37 UTC</createdTime>
+<generatorID>40494A90-F4B9-6294-D978-2567C8560C89</generatorID>
+<ownerDesignName>logical</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
+<ownDataTypeParameters>20,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="cargo" id="7B85D3A2-0195-907C-A532-2EC6544A815D">
+<createdBy>Dumba</createdBy>
+<createdTime>2026-05-14 17:09:37 UTC</createdTime>
+<generatorID>71AD42CF-8482-19C6-508E-99B579802DFD</generatorID>
+<ownerDesignName>logical</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50 CHAR</dataTypeSize>
+<ownDataTypeParameters>50 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="sueldo_base" id="246E1F41-F415-EB7E-66E9-BAC42DF61765">
+<createdBy>Dumba</createdBy>
+<createdTime>2026-05-14 17:09:37 UTC</createdTime>
+<generatorID>76AD796E-BCAE-521C-43A3-29B2D9C9DBAD</generatorID>
+<ownerDesignName>logical</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>9</dataTypePrecision>
+<ownDataTypeParameters>,9,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Comuna_id_comuna" id="E45BB8EF-7F98-49A3-93FA-46333E8309D3">
+<createdBy>Dumba</createdBy>
+<createdTime>2026-05-14 17:09:37 UTC</createdTime>
+<generatorID>92A69ADA-E681-7474-E3BA-2957FA3A763D</generatorID>
+<ownerDesignName>logical</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>5 CHAR</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="60609501-E438-D029-9187-1A942BFE0DB1" referredColumn="110ABAD9-A3D4-5C3D-3732-6B16793D53ED"/>
+</associations>
+</Column>
+<Column name="Telefono_id_telefono" id="F3C164DB-8806-BDB4-67C1-097D982D11BB">
+<createdBy>Dumba</createdBy>
+<createdTime>2026-05-14 17:19:09 UTC</createdTime>
+<ownerDesignName>logical</ownerDesignName>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="A4A6BBC9-C5F2-0C62-8FEE-4498E99D67BF" referredColumn="C434941A-D5E6-2B11-F28C-90D74FE5C0A3"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="BB960612-E1CD-6E60-2006-DF854E88326B" name="Trabajador_PK">
+<createdBy>Dumba</createdBy>
+<createdTime>2026-05-14 17:09:37 UTC</createdTime>
+<generatorID>8AECAA5F-B5E4-A4D8-1907-C8560C294CE9</generatorID>
+<ownerDesignName>logical</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="5D852A9D-A368-873E-B3B8-A558934E663F"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="A48D1483-D4AA-E3F9-FB67-703A404CDF95" name="Trabajador__IDX">
+<createdBy>Dumba</createdBy>
+<createdTime>2026-05-14 17:09:37 UTC</createdTime>
+<ownerDesignName>logical</ownerDesignName>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<relationGeneratorID>3998AB3B-5A0F-90B3-D97C-E9835D3FBA06</relationGeneratorID>
+<indexColumnUsage>
+<colUsage columnID="E45BB8EF-7F98-49A3-93FA-46333E8309D3"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="F4FE0BFD-C522-D0C8-E981-DDE2E1579646" name="Trabajador_Comuna_FK">
+<createdBy>Dumba</createdBy>
+<createdTime>2026-05-14 17:09:37 UTC</createdTime>
+<generatorID>3998AB3B-5A0F-90B3-D97C-E9835D3FBA06</generatorID>
+<ownerDesignName>logical</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="E45BB8EF-7F98-49A3-93FA-46333E8309D3"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="1D8B5720-1DAC-6242-7F59-B5C355ABD1AB" name="Trabajador_Telefono_FK">
+<createdBy>Dumba</createdBy>
+<createdTime>2026-05-14 17:19:09 UTC</createdTime>
+<generatorID>301E33F5-25CD-947E-5F5A-31F25E3E72F0</generatorID>
+<ownerDesignName>logical</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="F3C164DB-8806-BDB4-67C1-097D982D11BB"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

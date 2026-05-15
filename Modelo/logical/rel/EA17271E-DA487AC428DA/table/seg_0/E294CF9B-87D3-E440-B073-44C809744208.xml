@@ -1,0 +1,232 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="E294CF9B-87D3-E440-B073-44C809744208" name="Cliente">
+<createdBy>Dumba</createdBy>
+<createdTime>2026-05-14 17:09:37 UTC</createdTime>
+<generatorID>DB7EA8BE-ED03-953E-BB51-91476B22C07C</generatorID>
+<ownerDesignName>logical</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="id_cliente" id="4201919E-A4C7-1428-51D3-34AC927A121E">
+<createdBy>Dumba</createdBy>
+<createdTime>2026-05-14 17:09:37 UTC</createdTime>
+<generatorID>E8A8B7B3-2EC0-D6EC-2A9E-DCA288FAACFC</generatorID>
+<ownerDesignName>logical</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>5 CHAR</dataTypeSize>
+<ownDataTypeParameters>5 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="run" id="ED9CC1AA-4205-9A27-71DA-145715496DBD">
+<createdBy>Dumba</createdBy>
+<createdTime>2026-05-14 17:09:37 UTC</createdTime>
+<generatorID>B77C8229-8FEB-CE39-F02C-DE3453CFD936</generatorID>
+<ownerDesignName>logical</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>8</dataTypePrecision>
+<ownDataTypeParameters>,8,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="dverificado" id="F6C3AA8A-170E-7E88-AEA3-5FE13AF74AB4">
+<createdBy>Dumba</createdBy>
+<createdTime>2026-05-14 17:09:37 UTC</createdTime>
+<generatorID>37EF1F2D-3F6E-8575-5433-1BF08F0A5C65</generatorID>
+<ownerDesignName>logical</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>1 CHAR</dataTypeSize>
+<ownDataTypeParameters>1 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="pnombre" id="CA193CA3-C57D-68EA-D8EF-1588DA97F320">
+<createdBy>Dumba</createdBy>
+<createdTime>2026-05-14 17:09:37 UTC</createdTime>
+<generatorID>AE994CF3-ECE2-C6EC-AEFE-C53C2AAB6C40</generatorID>
+<ownerDesignName>logical</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>30 CHAR</dataTypeSize>
+<ownDataTypeParameters>30 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="snombre" id="E061AA9E-0292-17D5-4719-3F10B7E16FE7">
+<createdBy>Dumba</createdBy>
+<createdTime>2026-05-14 17:09:37 UTC</createdTime>
+<generatorID>C77306EE-D063-EE60-E2DC-120AB804E725</generatorID>
+<ownerDesignName>logical</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>30 CHAR</dataTypeSize>
+<ownDataTypeParameters>30 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="appaterno" id="9AB78A3C-8CC0-E090-3336-D000E698D8A1">
+<createdBy>Dumba</createdBy>
+<createdTime>2026-05-14 17:09:37 UTC</createdTime>
+<generatorID>C73FE208-30BA-48C7-87F7-8CA6F0E82A8E</generatorID>
+<ownerDesignName>logical</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>30 CHAR</dataTypeSize>
+<ownDataTypeParameters>30 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="apmaterno" id="48FB8C4C-D4D1-F9CE-C9D2-06A402BE1E6B">
+<createdBy>Dumba</createdBy>
+<createdTime>2026-05-14 17:09:37 UTC</createdTime>
+<generatorID>D5C90325-3CCA-D623-0524-FC0BF6D77726</generatorID>
+<ownerDesignName>logical</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>30 CHAR</dataTypeSize>
+<ownDataTypeParameters>30 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="fecha_nacimiento" id="64FF5841-7CE8-B657-3BD3-2D3CE58F748E">
+<createdBy>Dumba</createdBy>
+<createdTime>2026-05-14 17:09:37 UTC</createdTime>
+<generatorID>0B349B9E-F16C-46C3-3CE2-EA00206FDE55</generatorID>
+<ownerDesignName>logical</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="email" id="687FF316-0002-EF80-E766-FE0FF175014C">
+<createdBy>Dumba</createdBy>
+<createdTime>2026-05-14 17:09:37 UTC</createdTime>
+<generatorID>90935168-3B9E-28F3-1AA4-1FFA67208BB8</generatorID>
+<ownerDesignName>logical</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100 CHAR</dataTypeSize>
+<ownDataTypeParameters>100 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="direccion" id="054E862C-D3B1-F1F6-33A2-E6BB0137F702">
+<createdBy>Dumba</createdBy>
+<createdTime>2026-05-14 17:09:37 UTC</createdTime>
+<generatorID>222FAF62-ED6B-2313-07AC-0A8A21CA8227</generatorID>
+<ownerDesignName>logical</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100 CHAR</dataTypeSize>
+<ownDataTypeParameters>100 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="tipo_cliente" id="060E79FD-E718-AFD5-9697-25089210FB6F">
+<createdBy>Dumba</createdBy>
+<createdTime>2026-05-14 17:09:37 UTC</createdTime>
+<generatorID>8B780075-BDB1-87A4-2713-338F7A682B32</generatorID>
+<ownerDesignName>logical</ownerDesignName>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Comuna_id_comuna" id="AE2CDE36-1D66-B335-1CB4-515F5C44FD2F">
+<createdBy>Dumba</createdBy>
+<createdTime>2026-05-14 17:09:37 UTC</createdTime>
+<generatorID>6CA1EA22-77A3-0E49-66EC-B046ECF197CE</generatorID>
+<ownerDesignName>logical</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>5 CHAR</dataTypeSize>
+<ownDataTypeParameters>5 CHAR,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="3E77411E-72EC-709A-1642-32186522A248" referredColumn="110ABAD9-A3D4-5C3D-3732-6B16793D53ED"/>
+</associations>
+</Column>
+<Column name="Telefono_id_telefono" id="B4F723D2-F18C-D2FA-42FC-2E7FDFADAA40">
+<createdBy>Dumba</createdBy>
+<createdTime>2026-05-14 17:26:31 UTC</createdTime>
+<ownerDesignName>logical</ownerDesignName>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="0636E305-03EE-465D-3928-144023879C4B" referredColumn="C434941A-D5E6-2B11-F28C-90D74FE5C0A3"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="C9F1A448-B49B-7894-4972-152BABB50A26" name="Cliente_PK">
+<createdBy>Dumba</createdBy>
+<createdTime>2026-05-14 17:09:37 UTC</createdTime>
+<generatorID>E4EF14DA-9A1A-D813-E47C-9168BD21166C</generatorID>
+<ownerDesignName>logical</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="4201919E-A4C7-1428-51D3-34AC927A121E"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="210B63C9-B6D4-EC11-15CB-214F29CB3C78" name="Cliente__IDX">
+<createdBy>Dumba</createdBy>
+<createdTime>2026-05-14 17:09:37 UTC</createdTime>
+<ownerDesignName>logical</ownerDesignName>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<relationGeneratorID>45DDB6E3-E438-DFE8-9EAC-398CE1CC1CB8</relationGeneratorID>
+</ind_PK_UK>
+<ind_PK_UK id="262F0CF9-9DE6-1759-A0C0-E59E4FD92182" name="Cliente__IDXv1">
+<createdBy>Dumba</createdBy>
+<createdTime>2026-05-14 17:09:37 UTC</createdTime>
+<ownerDesignName>logical</ownerDesignName>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<relationGeneratorID>3DC65E31-DCD6-EDFF-5DBE-BA9EA72B3AEC</relationGeneratorID>
+</ind_PK_UK>
+<ind_PK_UK id="C0963034-7E7D-1E08-7C0D-643C230073FF" name="Cliente__IDXv2">
+<createdBy>Dumba</createdBy>
+<createdTime>2026-05-14 17:09:37 UTC</createdTime>
+<ownerDesignName>logical</ownerDesignName>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<relationGeneratorID>00F32683-E422-CA7C-AD27-4FD3A2505518</relationGeneratorID>
+<indexColumnUsage>
+<colUsage columnID="AE2CDE36-1D66-B335-1CB4-515F5C44FD2F"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="CCFEEAC3-BB77-E65A-0E67-D44636993D1E" name="Cliente_Comuna_FK">
+<createdBy>Dumba</createdBy>
+<createdTime>2026-05-14 17:09:37 UTC</createdTime>
+<generatorID>00F32683-E422-CA7C-AD27-4FD3A2505518</generatorID>
+<ownerDesignName>logical</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="AE2CDE36-1D66-B335-1CB4-515F5C44FD2F"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="9180B0E8-6544-A691-C263-FA46CB1F2145" name="Cliente_Telefono_FK">
+<createdBy>Dumba</createdBy>
+<createdTime>2026-05-14 17:26:31 UTC</createdTime>
+<generatorID>301E33F5-25CD-947E-5F5A-31F25E3E72F0</generatorID>
+<ownerDesignName>logical</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="B4F723D2-F18C-D2FA-42FC-2E7FDFADAA40"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

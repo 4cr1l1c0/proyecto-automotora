@@ -1,0 +1,85 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="D86F2977-E868-C987-DFFF-4DFABF8936F8" name="Administrativo">
+<createdBy>Dumba</createdBy>
+<createdTime>2026-05-14 17:09:37 UTC</createdTime>
+<generatorID>7C052306-FB98-1F7D-2C97-0CB2BEDA9B88</generatorID>
+<ownerDesignName>logical</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="id_trabajador" id="4B387882-540A-42A4-299A-C9BF191D37F6">
+<createdBy>Dumba</createdBy>
+<createdTime>2026-05-14 17:09:37 UTC</createdTime>
+<generatorID>F1865FB4-6109-4730-2AB6-15363B9423D0</generatorID>
+<ownerDesignName>logical</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="8B6AD76F-BACB-A48E-FFA7-A3F88F72CE02" referredColumn="5D852A9D-A368-873E-B3B8-A558934E663F"/>
+</associations>
+</Column>
+<Column name="id_administrativo" id="8EBA3D52-94A7-D76C-07FC-D3C8D0119942">
+<createdBy>Dumba</createdBy>
+<createdTime>2026-05-14 17:09:37 UTC</createdTime>
+<generatorID>0B9292D3-F527-73EE-4299-5EF3CA520A65</generatorID>
+<ownerDesignName>logical</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>5 CHAR</dataTypeSize>
+<ownDataTypeParameters>5 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="departamento" id="FD81B707-B350-8CEF-DB98-22C4C512DCF9">
+<createdBy>Dumba</createdBy>
+<createdTime>2026-05-14 17:09:37 UTC</createdTime>
+<generatorID>6FC3A88D-CD07-527E-E8E5-9A20D4CADF5C</generatorID>
+<ownerDesignName>logical</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>30 CHAR</dataTypeSize>
+<ownDataTypeParameters>30 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="1A140FF7-376A-3E37-0810-063CA7C57458" name="Administrativo_PK">
+<createdBy>Dumba</createdBy>
+<createdTime>2026-05-14 17:09:37 UTC</createdTime>
+<generatorID>8AECAA5F-B5E4-A4D8-1907-C8560C294CE9</generatorID>
+<ownerDesignName>logical</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="4B387882-540A-42A4-299A-C9BF191D37F6"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="756318FD-0FE0-D456-0CCF-518ADA255F0C" name="Administrativo_PKv1">
+<createdBy>Dumba</createdBy>
+<createdTime>2026-05-14 17:09:37 UTC</createdTime>
+<generatorID>46383BE2-C99F-2581-240E-CC07DE5D1706</generatorID>
+<ownerDesignName>logical</ownerDesignName>
+<indexState>Unique Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="8EBA3D52-94A7-D76C-07FC-D3C8D0119942"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="D4E9DDC3-2754-EF10-2234-19C822945F8E" name="Administrativo_Trabajador_FK">
+<createdBy>Dumba</createdBy>
+<createdTime>2026-05-14 17:09:37 UTC</createdTime>
+<generatorID>BFC3F20C-B08E-2F9B-E718-4D33747261F1</generatorID>
+<ownerDesignName>logical</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="4B387882-540A-42A4-299A-C9BF191D37F6"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>
