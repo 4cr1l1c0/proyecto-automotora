@@ -1,0 +1,18 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="9A9FFEB8-BDDB-30DD-9910-50CA7F6B3FFF" containerWithKeyObject="214675EF-D6F2-A8A3-DF1F-5ED2FAA77884" localFKIndex="0737D287-A5A4-1E9D-87F8-5BAEFB9EF02A" name="VisitaTestDrive_Visita_FK">
+<createdBy>Dumba</createdBy>
+<createdTime>2026-05-14 17:09:37 UTC</createdTime>
+<generatorID>B4BA28A9-B72B-44BA-3575-9BB245FF69B9</generatorID>
+<ownerDesignName>logical</ownerDesignName>
+<referredTableLongName>Visita</referredTableLongName>
+<arc>0A0BDCE8-8114-7F96-9E8E-F5FD8094AEA6</arc>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>46635D48-E3DB-5DBD-235C-0090CC823199</referredTableID>
+<keyObject>4EC8137E-284F-4643-359A-CF8C98C1C409</keyObject>
+<referredKeyID>4EC8137E-284F-4643-359A-CF8C98C1C409</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>id_visita</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

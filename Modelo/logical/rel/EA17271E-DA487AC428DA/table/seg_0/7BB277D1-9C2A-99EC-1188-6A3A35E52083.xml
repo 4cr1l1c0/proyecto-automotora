@@ -1,0 +1,212 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="7BB277D1-9C2A-99EC-1188-6A3A35E52083" name="VentaDetalle">
+<createdBy>Dumba</createdBy>
+<createdTime>2026-05-14 17:09:37 UTC</createdTime>
+<generatorID>21313FE5-0EDE-107A-74A8-20DF579524DA</generatorID>
+<ownerDesignName>logical</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="id_detalle" id="D3CDCDDB-18D4-7518-A0EF-31CA30F0BB95">
+<createdBy>Dumba</createdBy>
+<createdTime>2026-05-14 17:09:37 UTC</createdTime>
+<generatorID>6E1816AC-44AA-BCB6-15C0-CF22C526D46C</generatorID>
+<ownerDesignName>logical</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>5 CHAR</dataTypeSize>
+<ownDataTypeParameters>5 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="cantidad" id="B620C718-6C4C-C487-72E4-07C5593FC160">
+<createdBy>Dumba</createdBy>
+<createdTime>2026-05-14 17:09:37 UTC</createdTime>
+<generatorID>46FFB57C-5ABA-FD91-A2F9-F5F3DCC965C4</generatorID>
+<ownerDesignName>logical</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>1</dataTypePrecision>
+<ownDataTypeParameters>,1,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="precio_unitario" id="558B037D-09C1-0F51-7DD6-AC0461F114E7">
+<createdBy>Dumba</createdBy>
+<createdTime>2026-05-14 17:09:37 UTC</createdTime>
+<generatorID>D1976A66-CD5E-FB88-FE10-59A6707A4D94</generatorID>
+<ownerDesignName>logical</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>1</dataTypePrecision>
+<ownDataTypeParameters>,1,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="subtotal" id="E1BE340E-4596-FC00-6189-332D61E392EA">
+<createdBy>Dumba</createdBy>
+<createdTime>2026-05-14 17:09:37 UTC</createdTime>
+<generatorID>3DF1B91F-6A8E-E1DB-2F7C-89B25E252229</generatorID>
+<ownerDesignName>logical</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>9</dataTypePrecision>
+<ownDataTypeParameters>,9,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Venta_id_venta" id="561239B8-080C-51FF-45AA-13B5FE751113">
+<createdBy>Dumba</createdBy>
+<createdTime>2026-05-14 17:09:37 UTC</createdTime>
+<generatorID>147AA676-1E79-E975-0950-DE13A4F1230A</generatorID>
+<ownerDesignName>logical</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>5 CHAR</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="A15AAE1E-643C-2E90-61B0-5DCDEAF5708E" referredColumn="16EC746B-4A41-8A91-1F0F-BADCEF030222"/>
+</associations>
+</Column>
+<Column name="Venta_Cliente_id_cliente" id="9227B862-9C1C-291D-09B3-164F0BED519B">
+<createdBy>Dumba</createdBy>
+<createdTime>2026-05-14 17:09:37 UTC</createdTime>
+<generatorID>39A4774F-6B6C-9F3E-98E2-7E798388ED28</generatorID>
+<ownerDesignName>logical</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>5 CHAR</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="A15AAE1E-643C-2E90-61B0-5DCDEAF5708E" referredColumn="F3C09C1B-E4AE-4289-B097-C49998344804"/>
+</associations>
+</Column>
+<Column name="Venta_Vendedor_id_vendedor" id="886A9C0E-00C8-3A21-77CE-AAF890F67DA8">
+<createdBy>Dumba</createdBy>
+<createdTime>2026-05-14 17:09:37 UTC</createdTime>
+<generatorID>1394AEDA-E515-57B9-AD19-8A178D8929AF</generatorID>
+<ownerDesignName>logical</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>5 CHAR</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="A15AAE1E-643C-2E90-61B0-5DCDEAF5708E" referredColumn="B45F0987-A323-0BBD-708A-7CF62529A694"/>
+</associations>
+</Column>
+<Column name="VisitaTaller_id_visita" id="5BB3FB57-BF8C-06D2-268E-ED8BB2B3D6B4">
+<createdBy>Dumba</createdBy>
+<createdTime>2026-05-14 17:09:37 UTC</createdTime>
+<generatorID>8BAE0F6E-6881-9BDA-E491-1C3F757B48C2</generatorID>
+<ownerDesignName>logical</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>5 CHAR</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="6FF90FD0-B835-C9D3-EB5C-733C2EC9DC4E" referredColumn="6E32CC61-2327-9E57-9C8F-15BC48924159"/>
+</associations>
+</Column>
+<Column name="VehiculoAutomotora_id_vehiculo" id="E7A976A7-73EA-9490-A87E-2F8824C19C80">
+<createdBy>Dumba</createdBy>
+<createdTime>2026-05-14 17:33:41 UTC</createdTime>
+<ownerDesignName>logical</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>5 CHAR</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="D0E04CBD-7E1A-936A-6BC5-33E8A87AA3CB" referredColumn="455DB35C-E1A4-B623-9CD8-C958E6349A84"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="6A324817-87AE-D51A-4119-8C1C7A8F8609" name="VentaDetalle_PK">
+<createdBy>Dumba</createdBy>
+<createdTime>2026-05-14 17:09:37 UTC</createdTime>
+<generatorID>84DACF8E-8002-4E6A-1D49-6BF65D6EDF9F</generatorID>
+<ownerDesignName>logical</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="D3CDCDDB-18D4-7518-A0EF-31CA30F0BB95"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="AAF20CFC-45FE-AE76-41E2-C4722741A160" name="VentaDetalle__IDX">
+<createdBy>Dumba</createdBy>
+<createdTime>2026-05-14 17:09:37 UTC</createdTime>
+<ownerDesignName>logical</ownerDesignName>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<relationGeneratorID>4E669CA5-03E6-0842-9831-4D0FE99C5E97</relationGeneratorID>
+<indexColumnUsage>
+<colUsage columnID="5BB3FB57-BF8C-06D2-268E-ED8BB2B3D6B4"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="B6D8507D-EDE1-5800-5DBD-A3989CBE373A" name="VentaDetalle__IDXv1">
+<createdBy>Dumba</createdBy>
+<createdTime>2026-05-14 17:09:37 UTC</createdTime>
+<ownerDesignName>logical</ownerDesignName>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<relationGeneratorID>56A0C7F5-2F7B-CC6D-FF7C-7CA0BCEC5457</relationGeneratorID>
+<indexColumnUsage>
+<colUsage columnID="561239B8-080C-51FF-45AA-13B5FE751113"/>
+<colUsage columnID="9227B862-9C1C-291D-09B3-164F0BED519B"/>
+<colUsage columnID="886A9C0E-00C8-3A21-77CE-AAF890F67DA8"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="7F6E9719-F277-A33D-01CE-0DAB02608F36" name="VentaDetalle_VisitaTaller_FK">
+<createdBy>Dumba</createdBy>
+<createdTime>2026-05-14 17:09:37 UTC</createdTime>
+<generatorID>4E669CA5-03E6-0842-9831-4D0FE99C5E97</generatorID>
+<ownerDesignName>logical</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="5BB3FB57-BF8C-06D2-268E-ED8BB2B3D6B4"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="BA876EF6-E41E-951B-6AF6-8EA3456AA241" name="VentaDetalle_Venta_FK">
+<createdBy>Dumba</createdBy>
+<createdTime>2026-05-14 17:09:37 UTC</createdTime>
+<generatorID>56A0C7F5-2F7B-CC6D-FF7C-7CA0BCEC5457</generatorID>
+<ownerDesignName>logical</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="561239B8-080C-51FF-45AA-13B5FE751113"/>
+<colUsage columnID="9227B862-9C1C-291D-09B3-164F0BED519B"/>
+<colUsage columnID="886A9C0E-00C8-3A21-77CE-AAF890F67DA8"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="21EA2F81-D23F-9116-D485-23B22BBA1A32" name="VentaDetalle_VehiculoAutomotora_FK">
+<createdBy>Dumba</createdBy>
+<createdTime>2026-05-14 17:33:41 UTC</createdTime>
+<generatorID>295754BF-D22D-4FF5-2819-A8E767CAD584</generatorID>
+<ownerDesignName>logical</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="E7A976A7-73EA-9490-A87E-2F8824C19C80"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

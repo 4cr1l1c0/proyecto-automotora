@@ -1,0 +1,99 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="662B3CDF-F097-1CA3-9C95-7A143432B118" name="Comuna">
+<createdBy>Dumba</createdBy>
+<createdTime>2026-05-12 18:26:33 UTC</createdTime>
+<ownerDesignName>logical</ownerDesignName>
+<engineerTo>
+<item key="EA17271E-2925-59A5-E943-DA487AC428DA" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="id_comuna" id="AB0EE6B7-46FC-021E-3E09-BFF065C6EE3A">
+<createdBy>Dumba</createdBy>
+<createdTime>2026-05-12 18:26:39 UTC</createdTime>
+<ownerDesignName>logical</ownerDesignName>
+<engineerTo>
+<item key="EA17271E-2925-59A5-E943-DA487AC428DA" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>5 CHAR</dataTypeSize>
+<ownDataTypeParameters>5 CHAR,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="nombre" id="5FC2B042-75CE-56A6-6591-D15440ED5DC3">
+<createdBy>Dumba</createdBy>
+<createdTime>2026-05-12 18:26:53 UTC</createdTime>
+<ownerDesignName>logical</ownerDesignName>
+<engineerTo>
+<item key="EA17271E-2925-59A5-E943-DA487AC428DA" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50 CHAR</dataTypeSize>
+<ownDataTypeParameters>50 CHAR,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="id_cliente" id="993A6269-0EB5-5FE4-87AD-342538F33EC7">
+<createdBy>Dumba</createdBy>
+<createdTime>2026-05-14 16:24:55 UTC</createdTime>
+<generatorID>00F32683-E422-CA7C-AD27-4FD3A2505518</generatorID>
+<ownerDesignName>logical</ownerDesignName>
+<engineerTo>
+<item key="EA17271E-2925-59A5-E943-DA487AC428DA" value="true"/>
+</engineerTo>
+<referedAttribute>E8A8B7B3-2EC0-D6EC-2A9E-DCA288FAACFC</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>5 CHAR</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="id_region" id="0C8FBE15-B4F2-BAA3-EDBE-D0D8BE401797">
+<createdBy>Dumba</createdBy>
+<createdTime>2026-05-14 16:25:16 UTC</createdTime>
+<generatorID>335C5881-45C8-FA48-35DA-4896DC5A233E</generatorID>
+<ownerDesignName>logical</ownerDesignName>
+<engineerTo>
+<item key="EA17271E-2925-59A5-E943-DA487AC428DA" value="true"/>
+</engineerTo>
+<referedAttribute>F1C32C44-7C08-8665-5148-3C07DA9C6719</referedAttribute>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="id_trabajador" id="34ACE075-D412-E60F-E68D-994F3313C3B1">
+<createdBy>Dumba</createdBy>
+<createdTime>2026-05-14 16:26:55 UTC</createdTime>
+<generatorID>3998AB3B-5A0F-90B3-D97C-E9835D3FBA06</generatorID>
+<ownerDesignName>logical</ownerDesignName>
+<engineerTo>
+<item key="EA17271E-2925-59A5-E943-DA487AC428DA" value="true"/>
+</engineerTo>
+<referedAttribute>F1865FB4-6109-4730-2AB6-15363B9423D0</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="3BB8ADFD-080F-D2A4-FF75-D44E72068006" name="Comuna PK">
+<createdBy>Dumba</createdBy>
+<createdTime>2026-05-12 18:26:52 UTC</createdTime>
+<ownerDesignName>logical</ownerDesignName>
+<engineerTo>
+<item key="EA17271E-2925-59A5-E943-DA487AC428DA" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>AB0EE6B7-46FC-021E-3E09-BFF065C6EE3A</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

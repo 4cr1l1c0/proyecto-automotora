@@ -1,0 +1,103 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="5BC42E4D-5DE7-FF74-C108-E8A67A341A0A" name="Venta">
+<createdBy>Dumba</createdBy>
+<createdTime>2026-05-12 21:34:39 UTC</createdTime>
+<ownerDesignName>logical</ownerDesignName>
+<engineerTo>
+<item key="EA17271E-2925-59A5-E943-DA487AC428DA" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="id_venta" id="B1D28394-5944-F0EB-D12B-4119307BEA5E">
+<createdBy>Dumba</createdBy>
+<createdTime>2026-05-12 21:34:45 UTC</createdTime>
+<ownerDesignName>logical</ownerDesignName>
+<engineerTo>
+<item key="EA17271E-2925-59A5-E943-DA487AC428DA" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>5 CHAR</dataTypeSize>
+<ownDataTypeParameters>5 CHAR,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="fecha_venta" id="2AAE5746-9581-37BB-7D0B-8F55FEB34F7A">
+<createdBy>Dumba</createdBy>
+<createdTime>2026-05-12 21:35:46 UTC</createdTime>
+<ownerDesignName>logical</ownerDesignName>
+<engineerTo>
+<item key="EA17271E-2925-59A5-E943-DA487AC428DA" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="total" id="F56E33A6-707E-4A3B-2A87-C0E4076A1EDA">
+<createdBy>Dumba</createdBy>
+<createdTime>2026-05-12 21:36:06 UTC</createdTime>
+<ownerDesignName>logical</ownerDesignName>
+<engineerTo>
+<item key="EA17271E-2925-59A5-E943-DA487AC428DA" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>9</dataTypePrecision>
+<ownDataTypeParameters>,9,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="id_vendedor" id="AC2D2EC2-D7EC-E82A-44E9-7556827EAD3B">
+<createdBy>Dumba</createdBy>
+<createdTime>2026-05-14 16:34:23 UTC</createdTime>
+<generatorID>F6D8998E-7CB7-B9ED-CC83-CEE0458DDF5D</generatorID>
+<ownerDesignName>logical</ownerDesignName>
+<engineerTo>
+<item key="EA17271E-2925-59A5-E943-DA487AC428DA" value="true"/>
+</engineerTo>
+<referedAttribute>FCE20119-69C6-314B-BB39-45B5FC73928F</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>5 CHAR</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="id_cliente" id="2AD57747-27BD-1CCE-7464-EFE5148DCC11">
+<createdBy>Dumba</createdBy>
+<createdTime>2026-05-14 16:37:32 UTC</createdTime>
+<generatorID>E7D882B3-4C03-3F76-EB55-9B5D406BDBCB</generatorID>
+<ownerDesignName>logical</ownerDesignName>
+<engineerTo>
+<item key="EA17271E-2925-59A5-E943-DA487AC428DA" value="true"/>
+</engineerTo>
+<referedAttribute>E8A8B7B3-2EC0-D6EC-2A9E-DCA288FAACFC</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>5 CHAR</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="3147910F-D4D9-6AA1-341F-39A582C87B7C" name="Venta PK">
+<createdBy>Dumba</createdBy>
+<createdTime>2026-05-12 21:35:44 UTC</createdTime>
+<ownerDesignName>logical</ownerDesignName>
+<engineerTo>
+<item key="EA17271E-2925-59A5-E943-DA487AC428DA" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>B1D28394-5944-F0EB-D12B-4119307BEA5E</attributeRef>
+<attributeRef>2AD57747-27BD-1CCE-7464-EFE5148DCC11</attributeRef>
+<attributeRef>AC2D2EC2-D7EC-E82A-44E9-7556827EAD3B</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

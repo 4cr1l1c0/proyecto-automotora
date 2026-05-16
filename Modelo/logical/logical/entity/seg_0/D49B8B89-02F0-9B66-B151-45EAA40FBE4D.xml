@@ -1,0 +1,68 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="D49B8B89-02F0-9B66-B151-45EAA40FBE4D" name="Region">
+<createdBy>Dumba</createdBy>
+<createdTime>2026-05-14 16:17:47 UTC</createdTime>
+<ownerDesignName>logical</ownerDesignName>
+<engineerTo>
+<item key="EA17271E-2925-59A5-E943-DA487AC428DA" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="id_region" id="F1C32C44-7C08-8665-5148-3C07DA9C6719">
+<createdBy>Dumba</createdBy>
+<createdTime>2026-05-14 16:17:52 UTC</createdTime>
+<ownerDesignName>logical</ownerDesignName>
+<engineerTo>
+<item key="EA17271E-2925-59A5-E943-DA487AC428DA" value="true"/>
+</engineerTo>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="nombre" id="CAA2802D-DE27-800B-8BBB-E15543B72D50">
+<createdBy>Dumba</createdBy>
+<createdTime>2026-05-14 16:18:01 UTC</createdTime>
+<ownerDesignName>logical</ownerDesignName>
+<engineerTo>
+<item key="EA17271E-2925-59A5-E943-DA487AC428DA" value="true"/>
+</engineerTo>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="id_comuna" id="B83CCFD8-925D-314A-F045-4EDEF163E813">
+<createdBy>Dumba</createdBy>
+<createdTime>2026-05-14 16:25:07 UTC</createdTime>
+<generatorID>335C5881-45C8-FA48-35DA-4896DC5A233E</generatorID>
+<ownerDesignName>logical</ownerDesignName>
+<engineerTo>
+<item key="EA17271E-2925-59A5-E943-DA487AC428DA" value="true"/>
+</engineerTo>
+<referedAttribute>AB0EE6B7-46FC-021E-3E09-BFF065C6EE3A</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>5 CHAR</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="B1CB2303-3B6F-D487-4BD1-0D181E3B5C1B" name="Region PK">
+<createdBy>Dumba</createdBy>
+<createdTime>2026-05-14 16:17:59 UTC</createdTime>
+<ownerDesignName>logical</ownerDesignName>
+<engineerTo>
+<item key="EA17271E-2925-59A5-E943-DA487AC428DA" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>F1C32C44-7C08-8665-5148-3C07DA9C6719</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

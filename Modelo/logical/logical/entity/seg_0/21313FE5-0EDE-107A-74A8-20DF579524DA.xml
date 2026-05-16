@@ -1,0 +1,145 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="21313FE5-0EDE-107A-74A8-20DF579524DA" name="VentaDetalle">
+<createdBy>Dumba</createdBy>
+<createdTime>2026-05-14 16:13:47 UTC</createdTime>
+<ownerDesignName>logical</ownerDesignName>
+<engineerTo>
+<item key="EA17271E-2925-59A5-E943-DA487AC428DA" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="id_detalle" id="6E1816AC-44AA-BCB6-15C0-CF22C526D46C">
+<createdBy>Dumba</createdBy>
+<createdTime>2026-05-14 16:13:57 UTC</createdTime>
+<ownerDesignName>logical</ownerDesignName>
+<engineerTo>
+<item key="EA17271E-2925-59A5-E943-DA487AC428DA" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>5 CHAR</dataTypeSize>
+<ownDataTypeParameters>5 CHAR,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="cantidad" id="46FFB57C-5ABA-FD91-A2F9-F5F3DCC965C4">
+<createdBy>Dumba</createdBy>
+<createdTime>2026-05-14 16:14:02 UTC</createdTime>
+<ownerDesignName>logical</ownerDesignName>
+<engineerTo>
+<item key="EA17271E-2925-59A5-E943-DA487AC428DA" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>1</dataTypePrecision>
+<ownDataTypeParameters>,1,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="precio_unitario" id="D1976A66-CD5E-FB88-FE10-59A6707A4D94">
+<createdBy>Dumba</createdBy>
+<createdTime>2026-05-14 16:14:34 UTC</createdTime>
+<ownerDesignName>logical</ownerDesignName>
+<engineerTo>
+<item key="EA17271E-2925-59A5-E943-DA487AC428DA" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>1</dataTypePrecision>
+<ownDataTypeParameters>,1,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="subtotal" id="3DF1B91F-6A8E-E1DB-2F7C-89B25E252229">
+<createdBy>Dumba</createdBy>
+<createdTime>2026-05-14 16:32:22 UTC</createdTime>
+<ownerDesignName>logical</ownerDesignName>
+<engineerTo>
+<item key="EA17271E-2925-59A5-E943-DA487AC428DA" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>9</dataTypePrecision>
+<ownDataTypeParameters>,9,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="id_venta" id="147AA676-1E79-E975-0950-DE13A4F1230A">
+<createdBy>Dumba</createdBy>
+<createdTime>2026-05-14 16:35:11 UTC</createdTime>
+<generatorID>56A0C7F5-2F7B-CC6D-FF7C-7CA0BCEC5457</generatorID>
+<ownerDesignName>logical</ownerDesignName>
+<engineerTo>
+<item key="EA17271E-2925-59A5-E943-DA487AC428DA" value="true"/>
+</engineerTo>
+<referedAttribute>B1D28394-5944-F0EB-D12B-4119307BEA5E</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>5 CHAR</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="id_cliente" id="39A4774F-6B6C-9F3E-98E2-7E798388ED28">
+<createdBy>Dumba</createdBy>
+<createdTime>2026-05-14 16:37:32 UTC</createdTime>
+<generatorID>56A0C7F5-2F7B-CC6D-FF7C-7CA0BCEC5457</generatorID>
+<ownerDesignName>logical</ownerDesignName>
+<engineerTo>
+<item key="EA17271E-2925-59A5-E943-DA487AC428DA" value="true"/>
+</engineerTo>
+<referedAttribute>2AD57747-27BD-1CCE-7464-EFE5148DCC11</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>5 CHAR</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="id_vendedor" id="1394AEDA-E515-57B9-AD19-8A178D8929AF">
+<createdBy>Dumba</createdBy>
+<createdTime>2026-05-14 16:37:59 UTC</createdTime>
+<generatorID>56A0C7F5-2F7B-CC6D-FF7C-7CA0BCEC5457</generatorID>
+<ownerDesignName>logical</ownerDesignName>
+<engineerTo>
+<item key="EA17271E-2925-59A5-E943-DA487AC428DA" value="true"/>
+</engineerTo>
+<referedAttribute>AC2D2EC2-D7EC-E82A-44E9-7556827EAD3B</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>5 CHAR</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="id_visita" id="8BAE0F6E-6881-9BDA-E491-1C3F757B48C2">
+<createdBy>Dumba</createdBy>
+<createdTime>2026-05-14 16:50:15 UTC</createdTime>
+<generatorID>4E669CA5-03E6-0842-9831-4D0FE99C5E97</generatorID>
+<ownerDesignName>logical</ownerDesignName>
+<engineerTo>
+<item key="EA17271E-2925-59A5-E943-DA487AC428DA" value="true"/>
+</engineerTo>
+<referedAttribute>C333C9F4-BD9A-024F-8327-F48450A55E92</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>5 CHAR</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="84DACF8E-8002-4E6A-1D49-6BF65D6EDF9F" name="VentaDetalle PK">
+<createdBy>Dumba</createdBy>
+<createdTime>2026-05-14 16:14:10 UTC</createdTime>
+<ownerDesignName>logical</ownerDesignName>
+<engineerTo>
+<item key="EA17271E-2925-59A5-E943-DA487AC428DA" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>6E1816AC-44AA-BCB6-15C0-CF22C526D46C</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>
