@@ -1,0 +1,12 @@
+package cl.duoc.ms_vehicles;
+
+import org.junit.jupiter.api.Test;
+import org.springframework.boot.test.context.SpringBootTest;
+
+@SpringBootTest
+class MsVehiclesApplicationTests {
+
+    @Test
+    void contextLoads() {
+    }
+}
