@@ -5,45 +5,42 @@ import lombok.*;
 
 import java.time.LocalDate;
 
-@Data
-@Builder
-@NoArgsConstructor
-@AllArgsConstructor
 @Entity
-@Table(name = "cliente")
+@Table(name = "client")
+@Getter @Setter @NoArgsConstructor @AllArgsConstructor
 public class ClientModel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    Long id;
 
     @Column(name = "rut", nullable = false, length = 12)
-    private String rut;
+    String rut;
 
     @Column(name = "primer_nombre", nullable = false, length = 30)
-    private String primerNombre;
+    String primerNombre;
 
     @Column(name = "segundo_nombre", length = 30)
-    private String segundoNombre;
+    String segundoNombre;
 
     @Column(name = "apellido_paterno", nullable = false, length = 30)
-    private String apellidoPaterno;
+    String apellidoPaterno;
 
     @Column(name = "apellido_materno", nullable = false, length = 30)
-    private String apellidoMaterno;
+    String apellidoMaterno;
 
     @Column(name = "email", nullable = false, length = 100)
-    private String email;
+    String email;
 
     @Column(name = "telefono", nullable = false, length = 9)
-    private String telefono;
+    String telefono;
 
     @Column(name = "direccion", nullable = false, length = 100)
-    private String direccion;
+    String direccion;
 
     @Column(name = "fecha_nacimiento", nullable = false)
-    private LocalDate fechaNacimiento;
+    LocalDate fechaNacimiento;
 
     @Column(name = "activo_cliente", nullable = false)
-    private Boolean activoCliente;
+    Boolean activoCliente;
 }
