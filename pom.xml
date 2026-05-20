@@ -5,10 +5,10 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>cl.duoc</groupId>
-    <artifactId>proyecto-automotora2</artifactId>
+    <artifactId>proyecto-automotora</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>pom</packaging>
-    <name>proyecto-automotora2</name>
+    <name>proyecto-automotora</name>
 
     <modules>
         <module>ms-clients</module>
