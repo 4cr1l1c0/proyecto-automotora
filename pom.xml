@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>cl.duoc</groupId>
+    <artifactId>proyecto-automotora2</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <packaging>pom</packaging>
+    <name>proyecto-automotora2</name>
+
+    <modules>
+        <module>ms-clients</module>
+        <module>ms-sales</module>
+        <module>ms-employees</module>
+        <module>ms-vehicles</module>
+        <module>ms-inventory</module>
+        <module>ms-test-drive</module>
+        <module>ms-suppliers</module>
+        <module>ms-delivery</module>
+        <module>ms-branches</module>
+        <module>ms-ensurances</module>
+    </modules>
+
+</project>
