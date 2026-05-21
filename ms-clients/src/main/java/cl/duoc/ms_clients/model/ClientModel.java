@@ -8,6 +8,7 @@ import java.time.LocalDate;
 @Entity
 @Table(name = "client")
 @Getter @Setter @NoArgsConstructor @AllArgsConstructor
+@Builder
 public class ClientModel {
 
     @Id
