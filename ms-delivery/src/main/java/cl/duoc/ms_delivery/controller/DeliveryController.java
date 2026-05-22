@@ -1,0 +1,60 @@
+package cl.duoc.ms_delivery.controller;
+
+import cl.duoc.ms_delivery.dto.DeliveryRequestDto;
+import cl.duoc.ms_delivery.dto.DeliveryResponseDto;
+import cl.duoc.ms_delivery.service.DeliveryService;
+import jakarta.validation.Valid;
+import lombok.RequiredArgsConstructor;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+
+@RestController
+@RequestMapping("/api/v1/deliveries")
+@RequiredArgsConstructor
+public class DeliveryController {
+
+    private final DeliveryService service;
+    private final Logger logger = LoggerFactory.getLogger(this.getClass());
+
+    @GetMapping
+    public ResponseEntity<List<DeliveryResponseDto>> findAll() {
+        logger.info("GET /api/v1/deliveries");
+        return ResponseEntity.ok(service.findAll());
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<DeliveryResponseDto> findById(@PathVariable Long id) {
+        try {
+            DeliveryResponseDto delivery = service.findById(id);
+            if (delivery == null) return ResponseEntity.notFound().build();
+            return ResponseEntity.ok(delivery);
+        } catch (Exception e) {
+            logger.error(e.getMessage());
+            return ResponseEntity.notFound().build();
+        }
+    }
+
+    @PostMapping
+    public ResponseEntity<DeliveryResponseDto> create(@Valid @RequestBody DeliveryRequestDto dto) {
+        return ResponseEntity.status(HttpStatus.CREATED).body(service.create(dto));
+    }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<DeliveryResponseDto> update(@PathVariable Long id, @Valid @RequestBody DeliveryRequestDto dto) {
+        dto.setId(id);
+        DeliveryResponseDto updated = service.update(dto);
+        if (updated == null) return ResponseEntity.notFound().build();
+        return ResponseEntity.ok(updated);
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> deleteById(@PathVariable Long id) {
+        if (service.deleteById(id)) return ResponseEntity.noContent().build();
+        return ResponseEntity.notFound().build();
+    }
+}
