@@ -1,0 +1,13 @@
+cl\duoc\ms_ensurances\feign\ClientDto.class
+cl\duoc\ms_ensurances\dto\InsuranceRequestDto.class
+cl\duoc\ms_ensurances\feign\ClientFeignClient.class
+cl\duoc\ms_ensurances\controller\InsuranceController.class
+cl\duoc\ms_ensurances\MsEnsurancesApplication.class
+cl\duoc\ms_ensurances\feign\VehicleDto.class
+cl\duoc\ms_ensurances\service\InsuranceServiceImpl.class
+cl\duoc\ms_ensurances\dto\InsuranceResponseDto.class
+cl\duoc\ms_ensurances\service\InsuranceService.class
+cl\duoc\ms_ensurances\feign\VehicleFeignClient.class
+cl\duoc\ms_ensurances\model\Insurance.class
+cl\duoc\ms_ensurances\repository\InsuranceRepository.class
+cl\duoc\ms_ensurances\controller\handler\ApiExceptionHandler.class
