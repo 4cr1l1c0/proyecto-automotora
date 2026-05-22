@@ -20,7 +20,7 @@
         <module>ms-suppliers</module>
         <module>ms-delivery</module>
         <module>ms-branches</module>
-        <module>ms-ensurances</module>
+        <module>ms-insurances</module>
     </modules>
 
 </project>
