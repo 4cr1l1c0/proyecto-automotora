@@ -11,30 +11,32 @@ public class InsuranceRequestDto {
 
     Long id;
 
-    @NotBlank
+    @NotBlank(message = "El número de póliza no puede estar vacío")
     String policyNumber;
 
-    @NotBlank
+    @NotBlank(message = "El tipo de seguro no puede estar vacío")
     String type;
 
-    @NotNull @Positive
+    @NotNull(message = "El monto de cobertura es requerido")
+    @Positive(message = "El monto de cobertura debe ser mayor a 0")
     BigDecimal coverageAmount;
 
-    @NotNull @Positive
+    @NotNull(message = "La prima es requerida")
+    @Positive(message = "La prima debe ser mayor a 0")
     BigDecimal premium;
 
-    @NotNull
+    @NotNull(message = "La fecha de inicio es requerida")
     LocalDate startDate;
 
-    @NotNull
+    @NotNull(message = "La fecha de fin es requerida")
     LocalDate endDate;
 
-    @NotNull
+    @NotNull(message = "El ID del vehículo es requerido")
     Long vehicleId;
 
-    @NotNull
+    @NotNull(message = "El ID del cliente es requerido")
     Long clientId;
 
-    @NotNull
+    @NotNull(message = "El estado activo es requerido")
     Boolean active;
 }

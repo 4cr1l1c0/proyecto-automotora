@@ -10,9 +10,18 @@ public class TestDriveRequestDto {
 
     Long id;
 
-    @NotNull Long clientId;
-    @NotNull Long vehicleId;
-    @NotNull LocalDate visitDate;
+    @NotNull(message = "El ID del cliente es requerido")
+    Long clientId;
+
+    @NotNull(message = "El ID del vehículo es requerido")
+    Long vehicleId;
+
+    @NotNull(message = "La fecha de visita es requerida")
+    LocalDate visitDate;
+
     String notes;
-    @NotBlank @Size(max = 20) String status;
+
+    @NotBlank(message = "El estado no puede estar vacío")
+    @Size(max = 20, message = "El estado no puede superar 20 caracteres")
+    String status;
 }

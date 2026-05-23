@@ -10,38 +10,38 @@ public class ClientRequestDto {
 
     Long id;
 
-    @NotBlank
-    @Size(min = 9, max = 12)
+    @NotBlank(message = "El RUT no puede estar vacío")
+    @Size(min = 9, max = 12, message = "El RUT debe tener entre 9 y 12 caracteres")
     String rut;
 
-    @NotBlank
-    @Size(min = 2, max = 30)
+    @NotBlank(message = "El primer nombre no puede estar vacío")
+    @Size(min = 2, max = 30, message = "El primer nombre debe tener entre 2 y 30 caracteres")
     String primerNombre;
 
-    @Size(max = 30)
+    @Size(max = 30, message = "El segundo nombre no puede superar 30 caracteres")
     String segundoNombre;
 
-    @NotBlank
-    @Size(min = 2, max = 30)
+    @NotBlank(message = "El apellido paterno no puede estar vacío")
+    @Size(min = 2, max = 30, message = "El apellido paterno debe tener entre 2 y 30 caracteres")
     String apellidoPaterno;
 
-    @NotBlank
-    @Size(min = 2, max = 30)
+    @NotBlank(message = "El apellido materno no puede estar vacío")
+    @Size(min = 2, max = 30, message = "El apellido materno debe tener entre 2 y 30 caracteres")
     String apellidoMaterno;
 
-    @NotBlank
-    @Email(message = "Email debe ser un email válido")
+    @NotBlank(message = "El email no puede estar vacío")
+    @Email(message = "Debe ser un correo electrónico válido")
     String email;
 
-    @NotBlank
+    @NotBlank(message = "El teléfono no puede estar vacío")
     String telefono;
 
-    @NotBlank
+    @NotBlank(message = "La dirección no puede estar vacía")
     String direccion;
 
-    @NotNull
+    @NotNull(message = "La fecha de nacimiento es requerida")
     LocalDate fechaNacimiento;
 
-    @NotNull
+    @NotNull(message = "El estado activo es requerido")
     Boolean activoCliente;
 }

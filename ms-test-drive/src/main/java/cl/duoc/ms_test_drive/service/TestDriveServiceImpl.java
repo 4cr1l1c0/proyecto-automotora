@@ -2,7 +2,10 @@ package cl.duoc.ms_test_drive.service;
 
 import cl.duoc.ms_test_drive.dto.TestDriveRequestDto;
 import cl.duoc.ms_test_drive.dto.TestDriveResponseDto;
+import cl.duoc.ms_test_drive.exception.ResourceNotFoundException;
+import cl.duoc.ms_test_drive.feign.ClientDto;
 import cl.duoc.ms_test_drive.feign.ClientFeignClient;
+import cl.duoc.ms_test_drive.feign.VehicleDto;
 import cl.duoc.ms_test_drive.feign.VehicleFeignClient;
 import cl.duoc.ms_test_drive.model.TestDriveVisit;
 import cl.duoc.ms_test_drive.repository.TestDriveRepository;
@@ -45,6 +48,16 @@ public class TestDriveServiceImpl implements TestDriveService {
         );
     }
 
+    private void validateForeignKeys(TestDriveRequestDto dto) {
+        ClientDto client = null;
+        try { client = clientFeignClient.findById(dto.getClientId()); } catch (Exception ignored) {}
+        if (client == null) throw new ResourceNotFoundException("Cliente con id " + dto.getClientId() + " no existe");
+
+        VehicleDto vehicle = null;
+        try { vehicle = vehicleFeignClient.findById(dto.getVehicleId()); } catch (Exception ignored) {}
+        if (vehicle == null) throw new ResourceNotFoundException("Vehículo con id " + dto.getVehicleId() + " no existe");
+    }
+
     @Override
     public TestDriveResponseDto findById(Long id) {
         return repository.findById(id).map(visit -> {
@@ -66,16 +79,31 @@ public class TestDriveServiceImpl implements TestDriveService {
     @Override
     public List<TestDriveResponseDto> findAll() {
         log.info("Fetching all test drive visits");
-        return repository.findAll().stream().map(this::toDto).toList();
+        return repository.findAll().stream().map(visit -> {
+            TestDriveResponseDto dto = toDto(visit);
+            try {
+                dto.setClient(clientFeignClient.findById(visit.getClientId()));
+            } catch (Exception e) {
+                log.warn("Could not fetch client data for test drive {}: {}", visit.getId(), e.getMessage());
+            }
+            try {
+                dto.setVehicle(vehicleFeignClient.findById(visit.getVehicleId()));
+            } catch (Exception e) {
+                log.warn("Could not fetch vehicle data for test drive {}: {}", visit.getId(), e.getMessage());
+            }
+            return dto;
+        }).toList();
     }
 
     @Override
     public TestDriveResponseDto create(TestDriveRequestDto dto) {
+        validateForeignKeys(dto);
         return toDto(repository.save(toEntity(dto)));
     }
 
     @Override
     public TestDriveResponseDto update(TestDriveRequestDto dto) {
+        validateForeignKeys(dto);
         return toDto(repository.save(toEntity(dto)));
     }
 

@@ -2,6 +2,8 @@ package cl.duoc.ms_employees.service;
 
 import cl.duoc.ms_employees.dto.EmployeeRequestDto;
 import cl.duoc.ms_employees.dto.EmployeeResponseDto;
+import cl.duoc.ms_employees.exception.ResourceNotFoundException;
+import cl.duoc.ms_employees.feign.BranchDto;
 import cl.duoc.ms_employees.feign.BranchFeignClient;
 import cl.duoc.ms_employees.model.Employee;
 import cl.duoc.ms_employees.repository.EmployeeRepository;
@@ -52,6 +54,12 @@ public class EmployeeServiceImpl implements EmployeeService {
         );
     }
 
+    private void validateForeignKeys(EmployeeRequestDto dto) {
+        BranchDto branch = null;
+        try { branch = branchFeignClient.findById(dto.getBranchId()); } catch (Exception ignored) {}
+        if (branch == null) throw new ResourceNotFoundException("Sucursal con id " + dto.getBranchId() + " no existe");
+    }
+
     @Override
     public EmployeeResponseDto findById(Long id) {
         return repository.findById(id).map(employee -> {
@@ -68,16 +76,26 @@ public class EmployeeServiceImpl implements EmployeeService {
     @Override
     public List<EmployeeResponseDto> findAll() {
         log.info("Fetching all employees");
-        return repository.findAll().stream().map(this::toDto).toList();
+        return repository.findAll().stream().map(employee -> {
+            EmployeeResponseDto dto = toDto(employee);
+            try {
+                dto.setBranch(branchFeignClient.findById(employee.getBranchId()));
+            } catch (Exception e) {
+                log.warn("Could not fetch branch data for employee {}: {}", employee.getId(), e.getMessage());
+            }
+            return dto;
+        }).toList();
     }
 
     @Override
     public EmployeeResponseDto create(EmployeeRequestDto dto) {
+        validateForeignKeys(dto);
         return toDto(repository.save(toEntity(dto)));
     }
 
     @Override
     public EmployeeResponseDto update(EmployeeRequestDto dto) {
+        validateForeignKeys(dto);
         return toDto(repository.save(toEntity(dto)));
     }
 

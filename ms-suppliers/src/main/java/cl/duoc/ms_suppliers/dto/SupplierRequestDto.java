@@ -8,30 +8,30 @@ public class SupplierRequestDto {
 
     Long id;
 
-    @NotBlank
-    @Size(max = 100)
+    @NotBlank(message = "El nombre no puede estar vacío")
+    @Size(max = 100, message = "El nombre no puede superar 100 caracteres")
     String name;
 
-    @NotBlank
-    @Size(min = 9, max = 12)
+    @NotBlank(message = "El RUT no puede estar vacío")
+    @Size(min = 9, max = 12, message = "El RUT debe tener entre 9 y 12 caracteres")
     String rut;
 
-    @NotBlank
-    @Email(message = "Email debe ser un email válido")
+    @NotBlank(message = "El email no puede estar vacío")
+    @Email(message = "Debe ser un correo electrónico válido")
     String email;
 
-    @NotBlank
-    @Size(max = 20)
+    @NotBlank(message = "El teléfono no puede estar vacío")
+    @Size(max = 20, message = "El teléfono no puede superar 20 caracteres")
     String phone;
 
-    @NotBlank
-    @Size(max = 150)
+    @NotBlank(message = "La dirección no puede estar vacía")
+    @Size(max = 150, message = "La dirección no puede superar 150 caracteres")
     String address;
 
-    @NotBlank
-    @Size(max = 100)
+    @NotBlank(message = "El nombre de contacto no puede estar vacío")
+    @Size(max = 100, message = "El nombre de contacto no puede superar 100 caracteres")
     String contactName;
 
-    @NotNull
+    @NotNull(message = "El estado activo es requerido")
     Boolean active;
 }

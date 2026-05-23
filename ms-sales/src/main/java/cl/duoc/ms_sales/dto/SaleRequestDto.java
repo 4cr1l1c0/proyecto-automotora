@@ -10,31 +10,31 @@ public class SaleRequestDto {
 
     Long id;
 
-    @NotNull
+    @NotNull(message = "La fecha de venta es requerida")
     LocalDate saleDate;
 
-    @NotNull
-    @Positive
+    @NotNull(message = "El subtotal es requerido")
+    @Positive(message = "El subtotal debe ser mayor a 0")
     Double subtotal;
 
-    @NotNull
-    @Positive
+    @NotNull(message = "El IVA es requerido")
+    @Positive(message = "El IVA debe ser mayor a 0")
     Double iva;
 
-    @NotNull
-    @Positive
+    @NotNull(message = "El total es requerido")
+    @Positive(message = "El total debe ser mayor a 0")
     Double total;
 
-    @NotBlank
-    @Size(max = 30)
+    @NotBlank(message = "El tipo de pago no puede estar vacío")
+    @Size(max = 30, message = "El tipo de pago no puede superar 30 caracteres")
     String paymentType;
 
-    @NotNull
+    @NotNull(message = "El ID del cliente es requerido")
     Long clientId;
 
-    @NotNull
+    @NotNull(message = "El ID del vehículo es requerido")
     Long vehicleId;
 
-    @NotNull
+    @NotNull(message = "El ID del empleado es requerido")
     Long employeeId;
 }

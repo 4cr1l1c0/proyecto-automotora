@@ -10,9 +10,21 @@ public class InventoryRequestDto {
 
     Long id;
 
-    @NotNull Long vehicleId;
-    @NotNull @PositiveOrZero Integer quantity;
-    @NotNull @Positive Integer minQuantity;
-    @NotBlank @Size(max = 100) String location;
-    @NotNull LocalDate lastUpdated;
+    @NotNull(message = "El ID del vehículo es requerido")
+    Long vehicleId;
+
+    @NotNull(message = "La cantidad es requerida")
+    @PositiveOrZero(message = "La cantidad debe ser mayor o igual a 0")
+    Integer quantity;
+
+    @NotNull(message = "La cantidad mínima es requerida")
+    @Positive(message = "La cantidad mínima debe ser mayor a 0")
+    Integer minQuantity;
+
+    @NotBlank(message = "La ubicación no puede estar vacía")
+    @Size(max = 100, message = "La ubicación no puede superar 100 caracteres")
+    String location;
+
+    @NotNull(message = "La fecha de última actualización es requerida")
+    LocalDate lastUpdated;
 }

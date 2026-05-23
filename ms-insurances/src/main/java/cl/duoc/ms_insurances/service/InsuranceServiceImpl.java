@@ -2,7 +2,10 @@ package cl.duoc.ms_insurances.service;
 
 import cl.duoc.ms_insurances.dto.InsuranceRequestDto;
 import cl.duoc.ms_insurances.dto.InsuranceResponseDto;
+import cl.duoc.ms_insurances.exception.ResourceNotFoundException;
+import cl.duoc.ms_insurances.feign.ClientDto;
 import cl.duoc.ms_insurances.feign.ClientFeignClient;
+import cl.duoc.ms_insurances.feign.VehicleDto;
 import cl.duoc.ms_insurances.feign.VehicleFeignClient;
 import cl.duoc.ms_insurances.model.Insurance;
 import cl.duoc.ms_insurances.repository.InsuranceRepository;
@@ -53,6 +56,16 @@ public class InsuranceServiceImpl implements InsuranceService {
         );
     }
 
+    private void validateForeignKeys(InsuranceRequestDto dto) {
+        VehicleDto vehicle = null;
+        try { vehicle = vehicleFeignClient.findById(dto.getVehicleId()); } catch (Exception ignored) {}
+        if (vehicle == null) throw new ResourceNotFoundException("Vehículo con id " + dto.getVehicleId() + " no existe");
+
+        ClientDto client = null;
+        try { client = clientFeignClient.findById(dto.getClientId()); } catch (Exception ignored) {}
+        if (client == null) throw new ResourceNotFoundException("Cliente con id " + dto.getClientId() + " no existe");
+    }
+
     @Override
     public InsuranceResponseDto findById(Long id) {
         return repository.findById(id).map(insurance -> {
@@ -74,16 +87,31 @@ public class InsuranceServiceImpl implements InsuranceService {
     @Override
     public List<InsuranceResponseDto> findAll() {
         log.info("Fetching all insurances");
-        return repository.findAll().stream().map(this::toDto).toList();
+        return repository.findAll().stream().map(insurance -> {
+            InsuranceResponseDto dto = toDto(insurance);
+            try {
+                dto.setVehicle(vehicleFeignClient.findById(insurance.getVehicleId()));
+            } catch (Exception e) {
+                log.warn("Could not fetch vehicle data for insurance {}: {}", insurance.getId(), e.getMessage());
+            }
+            try {
+                dto.setClient(clientFeignClient.findById(insurance.getClientId()));
+            } catch (Exception e) {
+                log.warn("Could not fetch client data for insurance {}: {}", insurance.getId(), e.getMessage());
+            }
+            return dto;
+        }).toList();
     }
 
     @Override
     public InsuranceResponseDto create(InsuranceRequestDto dto) {
+        validateForeignKeys(dto);
         return toDto(repository.save(toEntity(dto)));
     }
 
     @Override
     public InsuranceResponseDto update(InsuranceRequestDto dto) {
+        validateForeignKeys(dto);
         return toDto(repository.save(toEntity(dto)));
     }
 
