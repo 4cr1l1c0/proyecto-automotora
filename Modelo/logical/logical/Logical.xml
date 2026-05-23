@@ -1,7 +1,0 @@
-<?xml version = '1.0' encoding = 'UTF-8'?>
-<LogicalDesign class="oracle.dbtools.crest.model.design.logical.LogicalDesign" name="Logical" id="1FEBAC6D-C068-BD48-033B-54EE8D45A9AA" mainViewID="4605C2D0-4D50-4645-445F-428AD2BD17B4">
-<createdBy>Dumba</createdBy>
-<createdTime>2026-05-12 18:07:10 UTC</createdTime>
-<ownerDesignName>logical</ownerDesignName>
-<shouldBeOpen>false</shouldBeOpen>
-</LogicalDesign>
