@@ -19,6 +19,9 @@ spring:
   flyway:
     enabled: true
   cloud:
+    openfeign:
+      circuitbreaker:
+        enabled: true
     discovery:
       enabled: false
 
@@ -49,3 +52,12 @@ logging:
 eureka:
   client:
     enabled: false
+
+resilience4j:
+  circuitbreaker:
+    configs:
+      default:
+        slidingWindowSize: 10
+        failureRateThreshold: 50
+        waitDurationInOpenState: 10s
+        permittedNumberOfCallsInHalfOpenState: 3

@@ -19,6 +19,9 @@ spring:
   flyway:
     enabled: true
   cloud:
+    openfeign:
+      circuitbreaker:
+        enabled: true
     discovery:
       enabled: false
 
@@ -46,3 +49,12 @@ eureka:
 feign:
   url:
     ms-vehicles: http://localhost:9004
+
+resilience4j:
+  circuitbreaker:
+    configs:
+      default:
+        slidingWindowSize: 10
+        failureRateThreshold: 50
+        waitDurationInOpenState: 10s
+        permittedNumberOfCallsInHalfOpenState: 3
