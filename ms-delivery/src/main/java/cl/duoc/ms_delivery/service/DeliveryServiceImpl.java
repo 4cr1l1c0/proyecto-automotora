@@ -3,6 +3,7 @@ package cl.duoc.ms_delivery.service;
 import cl.duoc.ms_delivery.dto.DeliveryRequestDto;
 import cl.duoc.ms_delivery.dto.DeliveryResponseDto;
 import cl.duoc.ms_delivery.exception.ResourceNotFoundException;
+import cl.duoc.ms_delivery.exception.ServiceUnavailableException;
 import cl.duoc.ms_delivery.feign.ClientDto;
 import cl.duoc.ms_delivery.feign.ClientFeignClient;
 import cl.duoc.ms_delivery.feign.SaleDto;
@@ -51,12 +52,10 @@ public class DeliveryServiceImpl implements DeliveryService {
     }
 
     private void validateForeignKeys(DeliveryRequestDto dto) {
-        SaleDto sale = null;
-        try { sale = saleFeignClient.findById(dto.getSaleId()); } catch (Exception ignored) {}
+        SaleDto sale = saleFeignClient.findById(dto.getSaleId());
         if (sale == null) throw new ResourceNotFoundException("Venta con id " + dto.getSaleId() + " no existe");
 
-        ClientDto client = null;
-        try { client = clientFeignClient.findById(dto.getClientId()); } catch (Exception ignored) {}
+        ClientDto client = clientFeignClient.findById(dto.getClientId());
         if (client == null) throw new ResourceNotFoundException("Cliente con id " + dto.getClientId() + " no existe");
     }
 
@@ -66,13 +65,13 @@ public class DeliveryServiceImpl implements DeliveryService {
             DeliveryResponseDto dto = toDto(delivery);
             try {
                 dto.setSale(saleFeignClient.findById(delivery.getSaleId()));
-            } catch (Exception e) {
-                log.warn("Could not fetch sale data for delivery {}: {}", id, e.getMessage());
+            } catch (ServiceUnavailableException e) {
+                log.warn("Servicio de ventas no disponible para delivery {}: {}", id, e.getMessage());
             }
             try {
                 dto.setClient(clientFeignClient.findById(delivery.getClientId()));
-            } catch (Exception e) {
-                log.warn("Could not fetch client data for delivery {}: {}", id, e.getMessage());
+            } catch (ServiceUnavailableException e) {
+                log.warn("Servicio de clientes no disponible para delivery {}: {}", id, e.getMessage());
             }
             return dto;
         }).orElse(null);
@@ -85,13 +84,13 @@ public class DeliveryServiceImpl implements DeliveryService {
             DeliveryResponseDto dto = toDto(delivery);
             try {
                 dto.setSale(saleFeignClient.findById(delivery.getSaleId()));
-            } catch (Exception e) {
-                log.warn("Could not fetch sale data for delivery {}: {}", delivery.getId(), e.getMessage());
+            } catch (ServiceUnavailableException e) {
+                log.warn("Servicio de ventas no disponible para delivery {}: {}", delivery.getId(), e.getMessage());
             }
             try {
                 dto.setClient(clientFeignClient.findById(delivery.getClientId()));
-            } catch (Exception e) {
-                log.warn("Could not fetch client data for delivery {}: {}", delivery.getId(), e.getMessage());
+            } catch (ServiceUnavailableException e) {
+                log.warn("Servicio de clientes no disponible para delivery {}: {}", delivery.getId(), e.getMessage());
             }
             return dto;
         }).toList();

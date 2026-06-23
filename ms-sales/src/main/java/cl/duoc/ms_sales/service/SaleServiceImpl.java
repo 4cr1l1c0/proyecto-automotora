@@ -3,6 +3,7 @@ package cl.duoc.ms_sales.service;
 import cl.duoc.ms_sales.dto.SaleRequestDto;
 import cl.duoc.ms_sales.dto.SaleResponseDto;
 import cl.duoc.ms_sales.exception.ResourceNotFoundException;
+import cl.duoc.ms_sales.exception.ServiceUnavailableException;
 import cl.duoc.ms_sales.feign.ClientDto;
 import cl.duoc.ms_sales.feign.ClientFeignClient;
 import cl.duoc.ms_sales.feign.EmployeeDto;
@@ -57,16 +58,13 @@ public class SaleServiceImpl implements SaleService {
     }
 
     private void validateForeignKeys(SaleRequestDto dto) {
-        ClientDto client = null;
-        try { client = clientFeignClient.findById(dto.getClientId()); } catch (Exception ignored) {}
+        ClientDto client = clientFeignClient.findById(dto.getClientId());
         if (client == null) throw new ResourceNotFoundException("Cliente con id " + dto.getClientId() + " no existe");
 
-        VehicleDto vehicle = null;
-        try { vehicle = vehicleFeignClient.findById(dto.getVehicleId()); } catch (Exception ignored) {}
+        VehicleDto vehicle = vehicleFeignClient.findById(dto.getVehicleId());
         if (vehicle == null) throw new ResourceNotFoundException("Vehículo con id " + dto.getVehicleId() + " no existe");
 
-        EmployeeDto employee = null;
-        try { employee = employeeFeignClient.findById(dto.getEmployeeId()); } catch (Exception ignored) {}
+        EmployeeDto employee = employeeFeignClient.findById(dto.getEmployeeId());
         if (employee == null) throw new ResourceNotFoundException("Empleado con id " + dto.getEmployeeId() + " no existe");
     }
 
@@ -76,8 +74,8 @@ public class SaleServiceImpl implements SaleService {
             SaleResponseDto dto = toDto(sale);
             try {
                 dto.setClient(clientFeignClient.findById(sale.getClientId()));
-            } catch (Exception e) {
-                log.warn("Could not fetch client data for sale {}: {}", id, e.getMessage());
+            } catch (ServiceUnavailableException e) {
+                log.warn("Servicio de clientes no disponible para venta {}: {}", id, e.getMessage());
             }
             return dto;
         }).orElse(null);
@@ -90,8 +88,8 @@ public class SaleServiceImpl implements SaleService {
             SaleResponseDto dto = toDto(sale);
             try {
                 dto.setClient(clientFeignClient.findById(sale.getClientId()));
-            } catch (Exception e) {
-                log.warn("Could not fetch client data for sale {}: {}", sale.getId(), e.getMessage());
+            } catch (ServiceUnavailableException e) {
+                log.warn("Servicio de clientes no disponible para venta {}: {}", sale.getId(), e.getMessage());
             }
             return dto;
         }).toList();
