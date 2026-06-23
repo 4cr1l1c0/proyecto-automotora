@@ -6,7 +6,8 @@ spring:
     name: ms-gateway
   cloud:
     gateway:
-      routes:
+      mvc:
+        routes:
         - id: ms-auth
           uri: http://localhost:9011
           predicates:
