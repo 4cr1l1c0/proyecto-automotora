@@ -22,6 +22,7 @@
         <module>ms-delivery</module>
         <module>ms-branches</module>
         <module>ms-insurances</module>
+        <module>ms-gateway</module>
     </modules>
 
 </project>
