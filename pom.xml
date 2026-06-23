@@ -11,6 +11,7 @@
     <name>proyecto-automotora</name>
 
     <modules>
+        <module>ms-auth</module>
         <module>ms-clients</module>
         <module>ms-sales</module>
         <module>ms-employees</module>
