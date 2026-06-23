@@ -3,6 +3,7 @@ package cl.duoc.ms_employees.service;
 import cl.duoc.ms_employees.dto.EmployeeRequestDto;
 import cl.duoc.ms_employees.dto.EmployeeResponseDto;
 import cl.duoc.ms_employees.exception.ResourceNotFoundException;
+import cl.duoc.ms_employees.exception.ServiceUnavailableException;
 import cl.duoc.ms_employees.feign.BranchDto;
 import cl.duoc.ms_employees.feign.BranchFeignClient;
 import cl.duoc.ms_employees.model.Employee;
@@ -55,8 +56,7 @@ public class EmployeeServiceImpl implements EmployeeService {
     }
 
     private void validateForeignKeys(EmployeeRequestDto dto) {
-        BranchDto branch = null;
-        try { branch = branchFeignClient.findById(dto.getBranchId()); } catch (Exception ignored) {}
+        BranchDto branch = branchFeignClient.findById(dto.getBranchId());
         if (branch == null) throw new ResourceNotFoundException("Sucursal con id " + dto.getBranchId() + " no existe");
     }
 
@@ -66,8 +66,8 @@ public class EmployeeServiceImpl implements EmployeeService {
             EmployeeResponseDto dto = toDto(employee);
             try {
                 dto.setBranch(branchFeignClient.findById(employee.getBranchId()));
-            } catch (Exception e) {
-                log.warn("Could not fetch branch data for employee {}: {}", id, e.getMessage());
+            } catch (ServiceUnavailableException e) {
+                log.warn("Servicio de sucursales no disponible para empleado {}: {}", id, e.getMessage());
             }
             return dto;
         }).orElse(null);
@@ -80,8 +80,8 @@ public class EmployeeServiceImpl implements EmployeeService {
             EmployeeResponseDto dto = toDto(employee);
             try {
                 dto.setBranch(branchFeignClient.findById(employee.getBranchId()));
-            } catch (Exception e) {
-                log.warn("Could not fetch branch data for employee {}: {}", employee.getId(), e.getMessage());
+            } catch (ServiceUnavailableException e) {
+                log.warn("Servicio de sucursales no disponible para empleado {}: {}", employee.getId(), e.getMessage());
             }
             return dto;
         }).toList();
