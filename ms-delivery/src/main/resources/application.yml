@@ -1,0 +1,55 @@
+spring:
+  application:
+    name: ms-delivery
+  datasource:
+    url: "jdbc:mysql://localhost:3306/db_delivery?useSSL=false&serverTimezone=UTC"
+    username: root
+    password: ""
+  jpa:
+    database-platform: org.hibernate.dialect.MySQLDialect
+    hibernate:
+      ddl-auto: none
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+  output:
+    ansi:
+      enabled: always
+  flyway:
+    enabled: true
+  cloud:
+    openfeign:
+      circuitbreaker:
+        enabled: true
+
+server:
+  port: 9008
+
+springdoc:
+  api-docs:
+    enabled: true
+  swagger-ui:
+    enabled: true
+    path: /doc/swagger-ui.html
+
+logging:
+  level:
+    root: ERROR
+    cl.duoc.ms_delivery: DEBUG
+    org.hibernate.SQL: DEBUG
+    org.hibernate.type.descriptor.sql.BasicBinder: TRACE
+
+feign:
+  url:
+    ms-sales: http://localhost:9002
+    ms-clients: http://localhost:9001
+
+resilience4j:
+  circuitbreaker:
+    configs:
+      default:
+        slidingWindowSize: 10
+        failureRateThreshold: 50
+        waitDurationInOpenState: 10s
+        permittedNumberOfCallsInHalfOpenState: 3

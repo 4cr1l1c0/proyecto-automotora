@@ -1,0 +1,46 @@
+spring:
+  application:
+    name: ms-auth
+  datasource:
+    url: "jdbc:mysql://localhost:3306/db_auth?useSSL=false&serverTimezone=UTC"
+    username: root
+    password: ""
+  jpa:
+    database-platform: org.hibernate.dialect.MySQLDialect
+    hibernate:
+      ddl-auto: none
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+  output:
+    ansi:
+      enabled: always
+  flyway:
+    enabled: true
+  cloud:
+    discovery:
+      enabled: false
+
+server:
+  port: 9011
+
+springdoc:
+  api-docs:
+    enabled: true
+  swagger-ui:
+    enabled: true
+    path: /doc/swagger-ui.html
+
+logging:
+  level:
+    root: ERROR
+    cl.duoc.ms_auth: DEBUG
+
+eureka:
+  client:
+    enabled: false
+
+jwt:
+  secret: DSY1103-Automotora-SecretKeyForJWT-HS256-2026-Auth
+  expiration-ms: 3600000

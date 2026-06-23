@@ -1,0 +1,56 @@
+spring:
+  application:
+    name: ms-sales
+  datasource:
+    url: "jdbc:mysql://localhost:3306/db_sales?useSSL=false&serverTimezone=UTC"
+    username: root
+    password: ""
+  jpa:
+    database-platform: org.hibernate.dialect.MySQLDialect
+    hibernate:
+      ddl-auto: none
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+  output:
+    ansi:
+      enabled: always
+  flyway:
+    enabled: true
+  cloud:
+    openfeign:
+      circuitbreaker:
+        enabled: true
+
+server:
+  port: 9002
+
+springdoc:
+  api-docs:
+    enabled: true
+  swagger-ui:
+    enabled: true
+    path: /doc/swagger-ui.html
+
+logging:
+  level:
+    root: ERROR
+    cl.duoc.ms_sales: DEBUG
+    org.hibernate.SQL: DEBUG
+    org.hibernate.type.descriptor.sql.BasicBinder: TRACE
+
+feign:
+  url:
+    ms-clients: http://localhost:9001
+    ms-vehicles: http://localhost:9004
+    ms-employees: http://localhost:9003
+
+resilience4j:
+  circuitbreaker:
+    configs:
+      default:
+        slidingWindowSize: 10
+        failureRateThreshold: 50
+        waitDurationInOpenState: 10s
+        permittedNumberOfCallsInHalfOpenState: 3
