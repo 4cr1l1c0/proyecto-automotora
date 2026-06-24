@@ -19,6 +19,9 @@ spring:
   flyway:
     enabled: true
   cloud:
+    openfeign:
+      circuitbreaker:
+        enabled: true
     discovery:
       enabled: false
 
@@ -50,22 +53,11 @@ eureka:
   client:
     enabled: false
 
----
-spring:
-  config:
-    activate:
-      on-profile: docker
-  datasource:
-    url: "jdbc:mysql://mysql-db:3306/db_insurances?useSSL=false&serverTimezone=UTC"
-    username: ${DB_USERNAME:root}
-    password: ${DB_PASSWORD:}
-
-server:
-  port: ${PORT:9010}
-
-feign:
-  client:
-    ms-clients:
-      url: http://ms-clients:9001
-    ms-vehicles:
-      url: http://ms-vehicles:9004
+resilience4j:
+  circuitbreaker:
+    configs:
+      default:
+        slidingWindowSize: 10
+        failureRateThreshold: 50
+        waitDurationInOpenState: 10s
+        permittedNumberOfCallsInHalfOpenState: 3

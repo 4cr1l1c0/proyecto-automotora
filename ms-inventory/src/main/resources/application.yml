@@ -19,6 +19,9 @@ spring:
   flyway:
     enabled: true
   cloud:
+    openfeign:
+      circuitbreaker:
+        enabled: true
     discovery:
       enabled: false
 
@@ -47,19 +50,11 @@ feign:
   url:
     ms-vehicles: http://localhost:9004
 
----
-spring:
-  config:
-    activate:
-      on-profile: docker
-  datasource:
-    url: "jdbc:mysql://mysql-db:3306/db_inventory?useSSL=false&serverTimezone=UTC"
-    username: ${DB_USERNAME:root}
-    password: ${DB_PASSWORD:}
-
-server:
-  port: ${PORT:9005}
-
-feign:
-  url:
-    ms-vehicles: http://ms-vehicles:9004
+resilience4j:
+  circuitbreaker:
+    configs:
+      default:
+        slidingWindowSize: 10
+        failureRateThreshold: 50
+        waitDurationInOpenState: 10s
+        permittedNumberOfCallsInHalfOpenState: 3
