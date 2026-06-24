@@ -42,3 +42,16 @@ logging:
 eureka:
   client:
     enabled: false
+
+---
+spring:
+  config:
+    activate:
+      on-profile: docker
+  datasource:
+    url: "jdbc:mysql://mysql-db:3306/db_suppliers?useSSL=false&serverTimezone=UTC"
+    username: ${DB_USERNAME:root}
+    password: ${DB_PASSWORD:}
+
+server:
+  port: ${PORT:9007}

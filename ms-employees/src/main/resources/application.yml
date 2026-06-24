@@ -58,3 +58,20 @@ resilience4j:
 eureka:
   client:
     enabled: false
+
+---
+spring:
+  config:
+    activate:
+      on-profile: docker
+  datasource:
+    url: "jdbc:mysql://mysql-db:3306/db_employees?useSSL=false&serverTimezone=UTC"
+    username: ${DB_USERNAME:root}
+    password: ${DB_PASSWORD:}
+
+server:
+  port: ${PORT:9003}
+
+feign:
+  url:
+    ms-branches: http://ms-branches:9009

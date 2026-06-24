@@ -1,0 +1,260 @@
+networks:
+  automotora-net:
+    driver: bridge
+
+volumes:
+  mysql_data:
+
+services:
+  mysql-db:
+    image: mysql:8
+    container_name: automotora-mysql
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+      - ./docker/init-db.sql:/docker-entrypoint-initdb.d/init-db.sql:ro
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-uroot", "-p${MYSQL_ROOT_PASSWORD}"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+    networks:
+      - automotora-net
+
+  ms-auth:
+    build: ./ms-auth
+    container_name: ms-auth
+    restart: unless-stopped
+    depends_on:
+      mysql-db:
+        condition: service_healthy
+    environment:
+      SPRING_PROFILES_ACTIVE: docker
+      DB_USERNAME: root
+      DB_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      JWT_SECRET: ${JWT_SECRET}
+      PORT: 9011
+    ports:
+      - "9011:9011"
+    networks:
+      - automotora-net
+
+  ms-clients:
+    build: ./ms-clients
+    container_name: ms-clients
+    restart: unless-stopped
+    depends_on:
+      mysql-db:
+        condition: service_healthy
+    environment:
+      SPRING_PROFILES_ACTIVE: docker
+      DB_USERNAME: root
+      DB_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      PORT: 9001
+    ports:
+      - "9001:9001"
+    networks:
+      - automotora-net
+
+  ms-branches:
+    build: ./ms-branches
+    container_name: ms-branches
+    restart: unless-stopped
+    depends_on:
+      mysql-db:
+        condition: service_healthy
+    environment:
+      SPRING_PROFILES_ACTIVE: docker
+      DB_USERNAME: root
+      DB_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      PORT: 9009
+    ports:
+      - "9009:9009"
+    networks:
+      - automotora-net
+
+  ms-employees:
+    build: ./ms-employees
+    container_name: ms-employees
+    restart: unless-stopped
+    depends_on:
+      mysql-db:
+        condition: service_healthy
+      ms-branches:
+        condition: service_started
+    environment:
+      SPRING_PROFILES_ACTIVE: docker
+      DB_USERNAME: root
+      DB_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      PORT: 9003
+    ports:
+      - "9003:9003"
+    networks:
+      - automotora-net
+
+  ms-vehicles:
+    build: ./ms-vehicles
+    container_name: ms-vehicles
+    restart: unless-stopped
+    depends_on:
+      mysql-db:
+        condition: service_healthy
+    environment:
+      SPRING_PROFILES_ACTIVE: docker
+      DB_USERNAME: root
+      DB_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      PORT: 9004
+    ports:
+      - "9004:9004"
+    networks:
+      - automotora-net
+
+  ms-inventory:
+    build: ./ms-inventory
+    container_name: ms-inventory
+    restart: unless-stopped
+    depends_on:
+      mysql-db:
+        condition: service_healthy
+      ms-vehicles:
+        condition: service_started
+    environment:
+      SPRING_PROFILES_ACTIVE: docker
+      DB_USERNAME: root
+      DB_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      PORT: 9005
+    ports:
+      - "9005:9005"
+    networks:
+      - automotora-net
+
+  ms-test-drive:
+    build: ./ms-test-drive
+    container_name: ms-test-drive
+    restart: unless-stopped
+    depends_on:
+      mysql-db:
+        condition: service_healthy
+      ms-clients:
+        condition: service_started
+      ms-vehicles:
+        condition: service_started
+    environment:
+      SPRING_PROFILES_ACTIVE: docker
+      DB_USERNAME: root
+      DB_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      PORT: 9006
+    ports:
+      - "9006:9006"
+    networks:
+      - automotora-net
+
+  ms-suppliers:
+    build: ./ms-suppliers
+    container_name: ms-suppliers
+    restart: unless-stopped
+    depends_on:
+      mysql-db:
+        condition: service_healthy
+    environment:
+      SPRING_PROFILES_ACTIVE: docker
+      DB_USERNAME: root
+      DB_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      PORT: 9007
+    ports:
+      - "9007:9007"
+    networks:
+      - automotora-net
+
+  ms-sales:
+    build: ./ms-sales
+    container_name: ms-sales
+    restart: unless-stopped
+    depends_on:
+      mysql-db:
+        condition: service_healthy
+      ms-clients:
+        condition: service_started
+      ms-vehicles:
+        condition: service_started
+      ms-employees:
+        condition: service_started
+    environment:
+      SPRING_PROFILES_ACTIVE: docker
+      DB_USERNAME: root
+      DB_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      PORT: 9002
+    ports:
+      - "9002:9002"
+    networks:
+      - automotora-net
+
+  ms-delivery:
+    build: ./ms-delivery
+    container_name: ms-delivery
+    restart: unless-stopped
+    depends_on:
+      mysql-db:
+        condition: service_healthy
+      ms-sales:
+        condition: service_started
+      ms-clients:
+        condition: service_started
+    environment:
+      SPRING_PROFILES_ACTIVE: docker
+      DB_USERNAME: root
+      DB_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      PORT: 9008
+    ports:
+      - "9008:9008"
+    networks:
+      - automotora-net
+
+  ms-insurances:
+    build: ./ms-insurances
+    container_name: ms-insurances
+    restart: unless-stopped
+    depends_on:
+      mysql-db:
+        condition: service_healthy
+      ms-clients:
+        condition: service_started
+      ms-vehicles:
+        condition: service_started
+    environment:
+      SPRING_PROFILES_ACTIVE: docker
+      DB_USERNAME: root
+      DB_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      PORT: 9010
+    ports:
+      - "9010:9010"
+    networks:
+      - automotora-net
+
+  ms-gateway:
+    build: ./ms-gateway
+    container_name: ms-gateway
+    restart: unless-stopped
+    depends_on:
+      - ms-auth
+      - ms-clients
+      - ms-branches
+      - ms-employees
+      - ms-vehicles
+      - ms-inventory
+      - ms-test-drive
+      - ms-suppliers
+      - ms-sales
+      - ms-delivery
+      - ms-insurances
+    environment:
+      SPRING_PROFILES_ACTIVE: docker
+      PORT: 8080
+    ports:
+      - "8080:8080"
+    networks:
+      - automotora-net

@@ -53,3 +53,21 @@ resilience4j:
         failureRateThreshold: 50
         waitDurationInOpenState: 10s
         permittedNumberOfCallsInHalfOpenState: 3
+
+---
+spring:
+  config:
+    activate:
+      on-profile: docker
+  datasource:
+    url: "jdbc:mysql://mysql-db:3306/db_delivery?useSSL=false&serverTimezone=UTC"
+    username: ${DB_USERNAME:root}
+    password: ${DB_PASSWORD:}
+
+server:
+  port: ${PORT:9008}
+
+feign:
+  url:
+    ms-sales: http://ms-sales:9002
+    ms-clients: http://ms-clients:9001
