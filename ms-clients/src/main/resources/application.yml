@@ -2,7 +2,7 @@ spring:
   application:
     name: ms-clients
   datasource:
-    url: "jdbc:mysql://localhost:3306/db_clients?useSSL=false&serverTimezone=UTC"
+    url: "jdbc:mysql://localhost:3306/db_clients?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC"
     username: root
     password: ""
   jpa:
@@ -49,7 +49,7 @@ spring:
     activate:
       on-profile: docker
   datasource:
-    url: "jdbc:mysql://mysql-db:3306/db_clients?useSSL=false&serverTimezone=UTC"
+    url: "jdbc:mysql://mysql-db:3306/db_clients?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC"
     username: ${DB_USERNAME:root}
     password: ${DB_PASSWORD:}
 

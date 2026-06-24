@@ -2,7 +2,7 @@ spring:
   application:
     name: ms-test-drive
   datasource:
-    url: "jdbc:mysql://localhost:3306/db_test_drive?useSSL=false&serverTimezone=UTC"
+    url: "jdbc:mysql://localhost:3306/db_test_drive?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC"
     username: root
     password: ""
   jpa:
@@ -59,3 +59,21 @@ resilience4j:
         failureRateThreshold: 50
         waitDurationInOpenState: 10s
         permittedNumberOfCallsInHalfOpenState: 3
+
+---
+spring:
+  config:
+    activate:
+      on-profile: docker
+  datasource:
+    url: "jdbc:mysql://mysql-db:3306/db_test_drive?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC"
+    username: ${DB_USERNAME:root}
+    password: ${DB_PASSWORD:}
+
+server:
+  port: ${PORT:9006}
+
+feign:
+  url:
+    ms-clients: http://ms-clients:9001
+    ms-vehicles: http://ms-vehicles:9004

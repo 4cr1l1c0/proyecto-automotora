@@ -254,6 +254,17 @@ services:
     environment:
       SPRING_PROFILES_ACTIVE: docker
       PORT: 8080
+      MS_AUTH_HOST: ms-auth
+      MS_CLIENTS_HOST: ms-clients
+      MS_SALES_HOST: ms-sales
+      MS_EMPLOYEES_HOST: ms-employees
+      MS_VEHICLES_HOST: ms-vehicles
+      MS_INVENTORY_HOST: ms-inventory
+      MS_TEST_DRIVE_HOST: ms-test-drive
+      MS_SUPPLIERS_HOST: ms-suppliers
+      MS_DELIVERY_HOST: ms-delivery
+      MS_BRANCHES_HOST: ms-branches
+      MS_INSURANCES_HOST: ms-insurances
     ports:
       - "8080:8080"
     networks:
