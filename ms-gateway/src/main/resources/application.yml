@@ -4,3 +4,69 @@ server:
 spring:
   application:
     name: ms-gateway
+  cloud:
+    gateway:
+      server:
+        webmvc:
+          routes:
+            - id: ms-auth
+              uri: http://ms-auth:9012
+              predicates:
+                - Path=/auth/**
+
+            - id: ms-clients
+              uri: http://ms-clients:9001
+              predicates:
+                - Path=/api/v1/clients/**
+
+            - id: ms-sales
+              uri: http://ms-sales:9002
+              predicates:
+                - Path=/api/v1/sales/**
+
+            - id: ms-employees
+              uri: http://ms-employees:9003
+              predicates:
+                - Path=/api/v1/employees/**
+
+            - id: ms-vehicles
+              uri: http://ms-vehicles:9004
+              predicates:
+                - Path=/api/v1/vehicles/**
+
+            - id: ms-inventory
+              uri: http://ms-inventory:9005
+              predicates:
+                - Path=/api/v1/inventory/**
+
+            - id: ms-test-drive
+              uri: http://ms-vehicles:9006
+              predicates:
+                - Path=/api/v1/test-drive/**
+
+            - id: ms-suppliers
+              uri: http://ms-suppliers:9007
+              predicates:
+                - Path=/api/v1/suppliers/**
+
+            - id: ms-delivery
+              uri: http://ms-delivery:9008
+              predicates:
+                - Path=/api/v1/delivery/**
+
+            - id: ms-branches
+              uri: http://ms-branches:9009
+              predicates:
+                - Path=/api/v1/branches/**
+
+
+            - id: ms-insurances
+              uri: http://ms-employees:9011
+              predicates:
+                - Path=/api/v1/employees/**
+
+
+
+
+
+

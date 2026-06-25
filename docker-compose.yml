@@ -13,7 +13,7 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
     ports:
-      - "3306:3306"
+      - "3307:3306"
     volumes:
       - mysql_data:/var/lib/mysql
       - ./docker/init-db.sql:/docker-entrypoint-initdb.d/init-db.sql:ro
@@ -239,33 +239,10 @@ services:
     build: ./ms-gateway
     container_name: ms-gateway
     restart: unless-stopped
-    depends_on:
-      - ms-auth
-      - ms-clients
-      - ms-branches
-      - ms-employees
-      - ms-vehicles
-      - ms-inventory
-      - ms-test-drive
-      - ms-suppliers
-      - ms-sales
-      - ms-delivery
-      - ms-insurances
     environment:
       SPRING_PROFILES_ACTIVE: docker
       PORT: 8080
-      MS_AUTH_HOST: ms-auth
-      MS_CLIENTS_HOST: ms-clients
-      MS_SALES_HOST: ms-sales
-      MS_EMPLOYEES_HOST: ms-employees
-      MS_VEHICLES_HOST: ms-vehicles
-      MS_INVENTORY_HOST: ms-inventory
-      MS_TEST_DRIVE_HOST: ms-test-drive
-      MS_SUPPLIERS_HOST: ms-suppliers
-      MS_DELIVERY_HOST: ms-delivery
-      MS_BRANCHES_HOST: ms-branches
-      MS_INSURANCES_HOST: ms-insurances
     ports:
-      - "8080:8080"
+      - "8085:8080"
     networks:
       - automotora-net

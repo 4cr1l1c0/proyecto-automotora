@@ -23,7 +23,7 @@ spring:
       enabled: false
 
 server:
-  port: 9011
+  port: 9012
 
 springdoc:
   api-docs:
