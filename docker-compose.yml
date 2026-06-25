@@ -37,9 +37,9 @@ services:
       DB_USERNAME: root
       DB_PASSWORD: ${MYSQL_ROOT_PASSWORD}
       JWT_SECRET: ${JWT_SECRET}
-      PORT: 9011
+      PORT: 9012
     ports:
-      - "9011:9011"
+      - "9012:9012"
     networks:
       - automotora-net
 
@@ -241,8 +241,8 @@ services:
     restart: unless-stopped
     environment:
       SPRING_PROFILES_ACTIVE: docker
-      PORT: 8080
+      PORT: 8085
     ports:
-      - "8085:8080"
+      - "8085:8085"
     networks:
       - automotora-net
