@@ -2,6 +2,8 @@
 
 Sistema de gestión para una empresa automotora, implementado con arquitectura de microservicios. Cada servicio es independiente, con su propia base de datos MySQL, expone una API REST y se comunica con los demás mediante OpenFeign.
 
+**Tablero Trello:** [https://trello.com/b/hMKFit71/duocuc-proyecto-automotora](https://trello.com/b/hMKFit71/duocuc-proyecto-automotora)
+
 ---
 
 ## Tech Stack
@@ -9,11 +11,16 @@ Sistema de gestión para una empresa automotora, implementado con arquitectura d
 - Java 21
 - Spring Boot 4
 - Spring Cloud OpenFeign (comunicación entre servicios)
+- Spring Cloud Gateway (API Gateway)
+- Spring Security + JWT (autenticación)
+- Resilience4j (Circuit Breaker)
 - Spring Data JPA + Hibernate
 - Flyway (migraciones de base de datos)
 - MySQL
 - Lombok
 - Maven
+- Docker / Docker Compose
+- Springdoc OpenAPI (Swagger UI)
 
 ---
 
@@ -21,6 +28,7 @@ Sistema de gestión para una empresa automotora, implementado con arquitectura d
 
 | Servicio | Puerto | Base de Datos | Descripción |
 |---|---|---|---|
+| ms-auth | 9012 | db_auth | Autenticación JWT |
 | ms-clients | 9001 | db_clients | Gestión de clientes |
 | ms-sales | 9002 | db_sales | Gestión de ventas |
 | ms-employees | 9003 | db_employees | Gestión de empleados |
@@ -30,7 +38,8 @@ Sistema de gestión para una empresa automotora, implementado con arquitectura d
 | ms-suppliers | 9007 | db_suppliers | Gestión de proveedores |
 | ms-delivery | 9008 | db_delivery | Gestión de entregas |
 | ms-branches | 9009 | db_branches | Gestión de sucursales |
-| ms-insurances | 9011 | db_insurances | Gestión de seguros |
+| ms-insurances | 9010 | db_insurances | Gestión de seguros |
+| ms-gateway | 8080 | — | API Gateway (punto de entrada único) |
 
 ---
 
@@ -47,6 +56,105 @@ Sistema de gestión para una empresa automotora, implementado con arquitectura d
 
 ---
 
+## API Gateway
+
+El microservicio `ms-gateway` actúa como punto de entrada único al sistema. Todas las peticiones externas pasan por él y son enrutadas al servicio correspondiente.
+
+- Puerto local: `8080`
+- Puerto Docker: `8085`
+
+| Path | Enruta a |
+|---|---|
+| `/auth/**` | ms-auth |
+| `/api/v1/clients/**` | ms-clients |
+| `/api/v1/sales/**` | ms-sales |
+| `/api/v1/employees/**` | ms-employees |
+| `/api/v1/vehicles/**` | ms-vehicles |
+| `/api/v1/inventory/**` | ms-inventory |
+| `/api/v1/test-drive/**` | ms-test-drive |
+| `/api/v1/suppliers/**` | ms-suppliers |
+| `/api/v1/delivery/**` | ms-delivery |
+| `/api/v1/branches/**` | ms-branches |
+| `/api/v1/insurances/**` | ms-insurances |
+
+---
+
+## Swagger UI
+
+Todos los microservicios exponen documentación interactiva con Swagger. Una vez levantado un servicio, acceder a:
+
+```
+http://localhost:{puerto}/doc/swagger-ui.html
+```
+
+Ejemplos:
+- ms-clients: `http://localhost:9001/doc/swagger-ui.html`
+- ms-sales: `http://localhost:9002/doc/swagger-ui.html`
+- ms-auth: `http://localhost:9012/doc/swagger-ui.html`
+
+---
+
+## Circuit Breaker
+
+Los microservicios que dependen de otros via Feign tienen Resilience4j configurado como Circuit Breaker. Si un servicio dependiente no está disponible, el circuit breaker evita la cascada de errores retornando una respuesta controlada.
+
+Servicios con Circuit Breaker: `ms-sales`, `ms-delivery`, `ms-insurances`, `ms-inventory`, `ms-test-drive`.
+
+---
+
+## Docker
+
+El proyecto incluye un `docker-compose.yml` que levanta todos los microservicios y una instancia de MySQL en una red interna compartida.
+
+### Requisitos
+
+- Docker y Docker Compose instalados
+- Crear un archivo `.env` en la raíz con las siguientes variables:
+
+```env
+MYSQL_ROOT_PASSWORD=tu_password
+JWT_SECRET=tu_secreto_jwt
+```
+
+### Levantar todo el sistema
+
+```bash
+docker compose up --build
+```
+
+MySQL queda expuesto en el puerto `3307` del host (para no colisionar con una instalación local en `3306`). El gateway queda en `http://localhost:8085`.
+
+### Detener
+
+```bash
+docker compose down
+```
+
+---
+
+## Pruebas unitarias
+
+Se implementaron pruebas unitarias con JUnit 5 y Mockito para la capa de servicio de los siguientes microservicios:
+
+- `ms-branches` — `BranchServiceImplTest`
+- `ms-clients` — `ClientServiceImplTest`
+- `ms-delivery` — `DeliveryServiceImplTest`
+- `ms-employees` — `EmployeeServiceImplTest`
+- `ms-insurances` — `InsuranceServiceImplTest`
+- `ms-inventory` — `InventoryServiceImplTest`
+- `ms-sales` — `SaleServiceImplTest`
+- `ms-suppliers` — `SupplierServiceImplTest`
+- `ms-test-drive` — `TestDriveServiceImplTest`
+- `ms-vehicles` — `VehicleServiceImplTest`
+
+Para correr las pruebas desde la carpeta de cada microservicio:
+
+```bash
+./mvnw test
+```
+
+---
+
 ## Requisitos previos
 
 - Java 21+
@@ -55,6 +163,7 @@ Sistema de gestión para una empresa automotora, implementado con arquitectura d
 - Crear las bases de datos antes de iniciar cada servicio:
 
 ```sql
+CREATE DATABASE db_auth;
 CREATE DATABASE db_clients;
 CREATE DATABASE db_sales;
 CREATE DATABASE db_employees;
