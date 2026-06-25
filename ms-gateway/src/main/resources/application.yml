@@ -10,7 +10,7 @@ spring:
         webmvc:
           routes:
             - id: ms-auth
-              uri: http://ms-auth:9012
+              uri: http://ms-auth:9011
               predicates:
                 - Path=/auth/**
 
@@ -40,7 +40,7 @@ spring:
                 - Path=/api/v1/inventory/**
 
             - id: ms-test-drive
-              uri: http://ms-vehicles:9006
+              uri: http://ms-test-drive:9006
               predicates:
                 - Path=/api/v1/test-drive/**
 
@@ -61,9 +61,9 @@ spring:
 
 
             - id: ms-insurances
-              uri: http://ms-employees:9011
+              uri: http://ms-insurances:9010
               predicates:
-                - Path=/api/v1/employees/**
+                - Path=/api/v1/insurances/**
 
 
 
