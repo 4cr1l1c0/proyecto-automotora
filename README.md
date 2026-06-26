@@ -27,19 +27,19 @@ Sistema de gestión para una empresa automotora, implementado con arquitectura d
 ## Microservicios
 
 | Servicio | Puerto | Base de Datos | Descripción |
-|---|---|---|---|
-| ms-auth | 9012 | db_auth | Autenticación JWT |
-| ms-clients | 9001 | db_clients | Gestión de clientes |
-| ms-sales | 9002 | db_sales | Gestión de ventas |
-| ms-employees | 9003 | db_employees | Gestión de empleados |
-| ms-vehicles | 9004 | db_vehicles | Gestión de vehículos |
-| ms-inventory | 9005 | db_inventory | Gestión de inventario |
-| ms-test-drive | 9006 | db_test_drive | Gestión de pruebas de manejo |
-| ms-suppliers | 9007 | db_suppliers | Gestión de proveedores |
-| ms-delivery | 9008 | db_delivery | Gestión de entregas |
-| ms-branches | 9009 | db_branches | Gestión de sucursales |
-| ms-insurances | 9010 | db_insurances | Gestión de seguros |
-| ms-gateway | 8080 | — | API Gateway (punto de entrada único) |
+|---|--------|---|---|
+| ms-auth | 9011   | db_auth | Autenticación JWT |
+| ms-clients | 9001   | db_clients | Gestión de clientes |
+| ms-sales | 9002   | db_sales | Gestión de ventas |
+| ms-employees | 9003   | db_employees | Gestión de empleados |
+| ms-vehicles | 9004   | db_vehicles | Gestión de vehículos |
+| ms-inventory | 9005   | db_inventory | Gestión de inventario |
+| ms-test-drive | 9006   | db_test_drive | Gestión de pruebas de manejo |
+| ms-suppliers | 9007   | db_suppliers | Gestión de proveedores |
+| ms-delivery | 9008   | db_delivery | Gestión de entregas |
+| ms-branches | 9009   | db_branches | Gestión de sucursales |
+| ms-insurances | 9010   | db_insurances | Gestión de seguros |
+| ms-gateway | 8085   | — | API Gateway (punto de entrada único) |
 
 ---
 
