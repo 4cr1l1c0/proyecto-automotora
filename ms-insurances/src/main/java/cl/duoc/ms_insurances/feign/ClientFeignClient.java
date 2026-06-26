@@ -4,7 +4,8 @@ import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
-@FeignClient(name = "ms-clients", url = "${feign.client.ms-clients.url}")
+@FeignClient(name = "ms-clients", url = "${feign.client.ms-clients.url}",
+        fallbackFactory = ClientFeignClientFallbackFactory.class)
 public interface ClientFeignClient {
 
     @GetMapping("/api/v1/clients/{id}")

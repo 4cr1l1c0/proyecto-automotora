@@ -3,6 +3,7 @@ package cl.duoc.ms_inventory.service;
 import cl.duoc.ms_inventory.dto.InventoryRequestDto;
 import cl.duoc.ms_inventory.dto.InventoryResponseDto;
 import cl.duoc.ms_inventory.exception.ResourceNotFoundException;
+import cl.duoc.ms_inventory.exception.ServiceUnavailableException;
 import cl.duoc.ms_inventory.feign.VehicleDto;
 import cl.duoc.ms_inventory.feign.VehicleFeignClient;
 import cl.duoc.ms_inventory.model.InventoryItem;
@@ -45,8 +46,7 @@ public class InventoryServiceImpl implements InventoryService {
     }
 
     private void validateForeignKeys(InventoryRequestDto dto) {
-        VehicleDto vehicle = null;
-        try { vehicle = vehicleFeignClient.findById(dto.getVehicleId()); } catch (Exception ignored) {}
+        VehicleDto vehicle = vehicleFeignClient.findById(dto.getVehicleId());
         if (vehicle == null) throw new ResourceNotFoundException("Vehículo con id " + dto.getVehicleId() + " no existe");
     }
 
@@ -56,8 +56,8 @@ public class InventoryServiceImpl implements InventoryService {
             InventoryResponseDto dto = toDto(item);
             try {
                 dto.setVehicle(vehicleFeignClient.findById(item.getVehicleId()));
-            } catch (Exception e) {
-                log.warn("Could not fetch vehicle data for inventory item {}: {}", id, e.getMessage());
+            } catch (ServiceUnavailableException e) {
+                log.warn("Servicio de vehículos no disponible para inventario {}: {}", id, e.getMessage());
             }
             return dto;
         }).orElse(null);
@@ -70,8 +70,8 @@ public class InventoryServiceImpl implements InventoryService {
             InventoryResponseDto dto = toDto(item);
             try {
                 dto.setVehicle(vehicleFeignClient.findById(item.getVehicleId()));
-            } catch (Exception e) {
-                log.warn("Could not fetch vehicle data for inventory item {}: {}", item.getId(), e.getMessage());
+            } catch (ServiceUnavailableException e) {
+                log.warn("Servicio de vehículos no disponible para inventario {}: {}", item.getId(), e.getMessage());
             }
             return dto;
         }).toList();

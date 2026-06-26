@@ -3,6 +3,7 @@ package cl.duoc.ms_insurances.service;
 import cl.duoc.ms_insurances.dto.InsuranceRequestDto;
 import cl.duoc.ms_insurances.dto.InsuranceResponseDto;
 import cl.duoc.ms_insurances.exception.ResourceNotFoundException;
+import cl.duoc.ms_insurances.exception.ServiceUnavailableException;
 import cl.duoc.ms_insurances.feign.ClientDto;
 import cl.duoc.ms_insurances.feign.ClientFeignClient;
 import cl.duoc.ms_insurances.feign.VehicleDto;
@@ -57,12 +58,10 @@ public class InsuranceServiceImpl implements InsuranceService {
     }
 
     private void validateForeignKeys(InsuranceRequestDto dto) {
-        VehicleDto vehicle = null;
-        try { vehicle = vehicleFeignClient.findById(dto.getVehicleId()); } catch (Exception ignored) {}
+        VehicleDto vehicle = vehicleFeignClient.findById(dto.getVehicleId());
         if (vehicle == null) throw new ResourceNotFoundException("Vehículo con id " + dto.getVehicleId() + " no existe");
 
-        ClientDto client = null;
-        try { client = clientFeignClient.findById(dto.getClientId()); } catch (Exception ignored) {}
+        ClientDto client = clientFeignClient.findById(dto.getClientId());
         if (client == null) throw new ResourceNotFoundException("Cliente con id " + dto.getClientId() + " no existe");
     }
 
@@ -72,13 +71,13 @@ public class InsuranceServiceImpl implements InsuranceService {
             InsuranceResponseDto dto = toDto(insurance);
             try {
                 dto.setVehicle(vehicleFeignClient.findById(insurance.getVehicleId()));
-            } catch (Exception e) {
-                log.warn("Could not fetch vehicle data for insurance {}: {}", id, e.getMessage());
+            } catch (ServiceUnavailableException e) {
+                log.warn("Servicio de vehículos no disponible para seguro {}: {}", id, e.getMessage());
             }
             try {
                 dto.setClient(clientFeignClient.findById(insurance.getClientId()));
-            } catch (Exception e) {
-                log.warn("Could not fetch client data for insurance {}: {}", id, e.getMessage());
+            } catch (ServiceUnavailableException e) {
+                log.warn("Servicio de clientes no disponible para seguro {}: {}", id, e.getMessage());
             }
             return dto;
         }).orElse(null);
@@ -91,13 +90,13 @@ public class InsuranceServiceImpl implements InsuranceService {
             InsuranceResponseDto dto = toDto(insurance);
             try {
                 dto.setVehicle(vehicleFeignClient.findById(insurance.getVehicleId()));
-            } catch (Exception e) {
-                log.warn("Could not fetch vehicle data for insurance {}: {}", insurance.getId(), e.getMessage());
+            } catch (ServiceUnavailableException e) {
+                log.warn("Servicio de vehículos no disponible para seguro {}: {}", insurance.getId(), e.getMessage());
             }
             try {
                 dto.setClient(clientFeignClient.findById(insurance.getClientId()));
-            } catch (Exception e) {
-                log.warn("Could not fetch client data for insurance {}: {}", insurance.getId(), e.getMessage());
+            } catch (ServiceUnavailableException e) {
+                log.warn("Servicio de clientes no disponible para seguro {}: {}", insurance.getId(), e.getMessage());
             }
             return dto;
         }).toList();

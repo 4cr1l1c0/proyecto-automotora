@@ -3,6 +3,7 @@ package cl.duoc.ms_test_drive.service;
 import cl.duoc.ms_test_drive.dto.TestDriveRequestDto;
 import cl.duoc.ms_test_drive.dto.TestDriveResponseDto;
 import cl.duoc.ms_test_drive.exception.ResourceNotFoundException;
+import cl.duoc.ms_test_drive.exception.ServiceUnavailableException;
 import cl.duoc.ms_test_drive.feign.ClientDto;
 import cl.duoc.ms_test_drive.feign.ClientFeignClient;
 import cl.duoc.ms_test_drive.feign.VehicleDto;
@@ -49,12 +50,10 @@ public class TestDriveServiceImpl implements TestDriveService {
     }
 
     private void validateForeignKeys(TestDriveRequestDto dto) {
-        ClientDto client = null;
-        try { client = clientFeignClient.findById(dto.getClientId()); } catch (Exception ignored) {}
+        ClientDto client = clientFeignClient.findById(dto.getClientId());
         if (client == null) throw new ResourceNotFoundException("Cliente con id " + dto.getClientId() + " no existe");
 
-        VehicleDto vehicle = null;
-        try { vehicle = vehicleFeignClient.findById(dto.getVehicleId()); } catch (Exception ignored) {}
+        VehicleDto vehicle = vehicleFeignClient.findById(dto.getVehicleId());
         if (vehicle == null) throw new ResourceNotFoundException("Vehículo con id " + dto.getVehicleId() + " no existe");
     }
 
@@ -64,13 +63,13 @@ public class TestDriveServiceImpl implements TestDriveService {
             TestDriveResponseDto dto = toDto(visit);
             try {
                 dto.setClient(clientFeignClient.findById(visit.getClientId()));
-            } catch (Exception e) {
-                log.warn("Could not fetch client data for test drive {}: {}", id, e.getMessage());
+            } catch (ServiceUnavailableException e) {
+                log.warn("Servicio de clientes no disponible para test drive {}: {}", id, e.getMessage());
             }
             try {
                 dto.setVehicle(vehicleFeignClient.findById(visit.getVehicleId()));
-            } catch (Exception e) {
-                log.warn("Could not fetch vehicle data for test drive {}: {}", id, e.getMessage());
+            } catch (ServiceUnavailableException e) {
+                log.warn("Servicio de vehículos no disponible para test drive {}: {}", id, e.getMessage());
             }
             return dto;
         }).orElse(null);
@@ -83,13 +82,13 @@ public class TestDriveServiceImpl implements TestDriveService {
             TestDriveResponseDto dto = toDto(visit);
             try {
                 dto.setClient(clientFeignClient.findById(visit.getClientId()));
-            } catch (Exception e) {
-                log.warn("Could not fetch client data for test drive {}: {}", visit.getId(), e.getMessage());
+            } catch (ServiceUnavailableException e) {
+                log.warn("Servicio de clientes no disponible para test drive {}: {}", visit.getId(), e.getMessage());
             }
             try {
                 dto.setVehicle(vehicleFeignClient.findById(visit.getVehicleId()));
-            } catch (Exception e) {
-                log.warn("Could not fetch vehicle data for test drive {}: {}", visit.getId(), e.getMessage());
+            } catch (ServiceUnavailableException e) {
+                log.warn("Servicio de vehículos no disponible para test drive {}: {}", visit.getId(), e.getMessage());
             }
             return dto;
         }).toList();
