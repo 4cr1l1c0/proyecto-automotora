@@ -3,6 +3,7 @@ package cl.duoc.ms_test_drive.service;
 import cl.duoc.ms_test_drive.dto.TestDriveRequestDto;
 import cl.duoc.ms_test_drive.dto.TestDriveResponseDto;
 import cl.duoc.ms_test_drive.exception.ResourceNotFoundException;
+import cl.duoc.ms_test_drive.exception.ServiceUnavailableException;
 import cl.duoc.ms_test_drive.feign.ClientDto;
 import cl.duoc.ms_test_drive.feign.ClientFeignClient;
 import cl.duoc.ms_test_drive.feign.VehicleDto;
@@ -79,7 +80,7 @@ class TestDriveServiceImplTest {
     @Test
     void findById_WhenClientUnavailable_ReturnsDtoWithNullClient() {
         when(repository.findById(1L)).thenReturn(Optional.of(testDriveVisit));
-        when(clientFeignClient.findById(1L)).thenThrow(new RuntimeException("Servicio no disponible"));
+        when(clientFeignClient.findById(1L)).thenThrow(new ServiceUnavailableException("Servicio no disponible"));
         when(vehicleFeignClient.findById(1L)).thenReturn(vehicleDto);
 
         TestDriveResponseDto result = service.findById(1L);
@@ -93,7 +94,7 @@ class TestDriveServiceImplTest {
     void findById_WhenVehicleUnavailable_ReturnsDtoWithNullVehicle() {
         when(repository.findById(1L)).thenReturn(Optional.of(testDriveVisit));
         when(clientFeignClient.findById(1L)).thenReturn(clientDto);
-        when(vehicleFeignClient.findById(1L)).thenThrow(new RuntimeException("Servicio no disponible"));
+        when(vehicleFeignClient.findById(1L)).thenThrow(new ServiceUnavailableException("Servicio no disponible"));
 
         TestDriveResponseDto result = service.findById(1L);
 

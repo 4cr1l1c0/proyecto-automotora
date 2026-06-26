@@ -3,6 +3,7 @@ package cl.duoc.ms_insurances.service;
 import cl.duoc.ms_insurances.dto.InsuranceRequestDto;
 import cl.duoc.ms_insurances.dto.InsuranceResponseDto;
 import cl.duoc.ms_insurances.exception.ResourceNotFoundException;
+import cl.duoc.ms_insurances.exception.ServiceUnavailableException;
 import cl.duoc.ms_insurances.feign.ClientDto;
 import cl.duoc.ms_insurances.feign.ClientFeignClient;
 import cl.duoc.ms_insurances.feign.VehicleDto;
@@ -84,7 +85,7 @@ class InsuranceServiceImplTest {
     @Test
     void findById_WhenVehicleUnavailable_ReturnsDtoWithNullVehicle() {
         when(repository.findById(1L)).thenReturn(Optional.of(insurance));
-        when(vehicleFeignClient.findById(1L)).thenThrow(new RuntimeException("Servicio no disponible"));
+        when(vehicleFeignClient.findById(1L)).thenThrow(new ServiceUnavailableException("Servicio no disponible"));
         when(clientFeignClient.findById(1L)).thenReturn(clientDto);
 
         InsuranceResponseDto result = service.findById(1L);
@@ -98,7 +99,7 @@ class InsuranceServiceImplTest {
     void findById_WhenClientUnavailable_ReturnsDtoWithNullClient() {
         when(repository.findById(1L)).thenReturn(Optional.of(insurance));
         when(vehicleFeignClient.findById(1L)).thenReturn(vehicleDto);
-        when(clientFeignClient.findById(1L)).thenThrow(new RuntimeException("Servicio no disponible"));
+        when(clientFeignClient.findById(1L)).thenThrow(new ServiceUnavailableException("Servicio no disponible"));
 
         InsuranceResponseDto result = service.findById(1L);
 

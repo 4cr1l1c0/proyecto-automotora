@@ -3,6 +3,7 @@ package cl.duoc.ms_inventory.service;
 import cl.duoc.ms_inventory.dto.InventoryRequestDto;
 import cl.duoc.ms_inventory.dto.InventoryResponseDto;
 import cl.duoc.ms_inventory.exception.ResourceNotFoundException;
+import cl.duoc.ms_inventory.exception.ServiceUnavailableException;
 import cl.duoc.ms_inventory.feign.VehicleDto;
 import cl.duoc.ms_inventory.feign.VehicleFeignClient;
 import cl.duoc.ms_inventory.model.InventoryItem;
@@ -67,7 +68,7 @@ class InventoryServiceImplTest {
     @Test
     void findById_WhenVehicleUnavailable_ReturnsDtoWithNullVehicle() {
         when(repository.findById(1L)).thenReturn(Optional.of(inventoryItem));
-        when(vehicleFeignClient.findById(1L)).thenThrow(new RuntimeException("Servicio no disponible"));
+        when(vehicleFeignClient.findById(1L)).thenThrow(new ServiceUnavailableException("Servicio no disponible"));
 
         InventoryResponseDto result = service.findById(1L);
 
